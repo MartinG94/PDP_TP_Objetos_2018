@@ -1,10 +1,14 @@
 object ronaldo {
 
-	var valorBase = 3
-	var fuerzaOscura = 5
+	var valorBase
+	var fuerzaOscura
 	var hechizoPreferido
 
 	method valorBase() = valorBase
+
+	method valorBase(unValor) {
+		valorBase = unValor
+	}
 
 	method fuerzaOscura() = fuerzaOscura
 
