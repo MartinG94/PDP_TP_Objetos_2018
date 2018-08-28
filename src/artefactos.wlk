@@ -4,3 +4,16 @@ object espadaDelDestino {
 
 }
 
+object collarDivino {
+
+	var perlas
+
+	method perlas() = perlas
+
+	method perlas(cantidadDePerlas) {
+		perlas = cantidadDePerlas
+	}
+
+	method unidadDeLucha() = self.perlas()
+
+}
