@@ -1,0 +1,42 @@
+import mundo.*
+import ronaldo.*
+import artefactos.*
+
+describe "group of tests" {
+	
+	fixture{
+		mundo.fuerzaOscura(5)
+		collarDivino.perlas(5)
+		ronaldo.valorBase(1)
+		ronaldo.artefactos([espadaDelDestino, collarDivino, mascaraOscura])
+	}
+
+	test "Si ronaldo no tiene artefactos, su habilidad de lucha es 1" {
+		ronaldo.eliminarTodosLosArtefactos()
+		assert.equals(ronaldo.habilidadDeLucha(), 1)
+	}
+	
+	test "La habilidad de ronaldo con todos los artefactos es de 13"{
+		assert.equals(ronaldo.habilidadDeLucha(), 13)
+	}
+	
+	test "Si el collar divino tiene 3 perlas, la habilidad de lucha de ronaldo es de 11"{
+		collarDivino.perlas(3)
+		assert.equals(ronaldo.habilidadDeLucha(), 11)
+	}
+	
+	test "Si el valor base de ronaldo es 8, su habilidad de lucha es 20"{
+		ronaldo.valorBase(8)
+		assert.equals(ronaldo.habilidadDeLucha(), 20)
+	}
+	
+	test "Luego de un eclipse, la unidad de lucha de la mascara oscura es 5"{
+		mundo.ocurreUnEclipse()
+		assert.equals(mascaraOscura.unidadDeLucha(), 5)
+	}
+	
+	test "Si se elimina la mascara oscura de los artefactos de ronaldo, su habilidad es 9"{
+		ronaldo.removerUnArtefacto(mascaraOscura)
+		assert.equals(ronaldo.habilidadDeLucha, 9)
+	}
+}
