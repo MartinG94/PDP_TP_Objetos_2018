@@ -1,0 +1,56 @@
+import ronaldo.*
+
+describe "hechiceria" {
+	
+	test "El hechizo preferido de ronaldo es espectro malefico, y su nivel 56" {
+		
+		ronaldo.hechizoPreferido(espectroMalefico)
+		
+		assert.equals(ronaldo.nivelDeHechiceria(), 56)
+
+	}
+	
+	test "El nombre de espectroMalefico cambia por uno mas largo, aumenta el nivel de ronaldo"{
+		
+		ronaldo.hechizoPreferido(espectroMalefico)
+		
+		espectroMalefico.nombre("espectro superrecontramalefico muajajaja")
+		
+		assert.equals(ronaldo.nivelDeHechiceria(), 125)
+	}
+	
+	test "El hechizo preferido de ronaldo cambia a hechizo basico, y su nivel es de 35"{
+		
+		ronaldo.hechizoPreferido(hechizoBasico)
+		
+		assert.equals(ronaldo.nivelDeHechiceria(), 35)
+		
+	}
+	
+	test "Ocurre un eclipse y el nivel de ronaldo es de 61"{
+		
+		ronaldo.hechizoPreferido(espectroMalefico)
+		ronaldo.ocurreUnEclipse()
+		
+		assert.equals(ronaldo.nivelDeHechiceria(), 61)
+	}
+	
+	test "El espectro malefico es poderoso"{
+		
+		assert.that(espectroMalefico.sosPoderoso())
+		
+	}
+	
+	test "El nombre de espectro malefico ahora es pepe y deja de ser poderoso" {
+		
+		espectroMalefico.nombre("pepe")
+		
+		assert.notThat(espectroMalefico.sosPoderoso())
+	}
+	
+	test "Hechizo basico no es poderoso"{
+		
+		assert.notThat(hechizoBasico.sosPoderoso())
+		
+	}
+}

@@ -1,7 +1,7 @@
 object ronaldo {
 
 	var valorBase = 3
-	var fuerzaOscura
+	var fuerzaOscura = 5
 	var hechizoPreferido
 
 	method valorBase() = valorBase
