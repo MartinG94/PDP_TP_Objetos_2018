@@ -1,4 +1,6 @@
-object abc {
-	
-	
+object espadaDelDestino {
+
+	method unidadDeLucha() = 3
+
 }
+
