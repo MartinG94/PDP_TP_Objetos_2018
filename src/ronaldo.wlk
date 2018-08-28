@@ -42,7 +42,7 @@ object ronaldo {
 	}
 
 	method habilidadDeLucha() = 
-		self.valorBase() + artefactos.sum({artefacto => artefacto.unidadDeLucha()})
+		self.valorBase() + self.artefactos().sum({artefacto => artefacto.unidadDeLucha()})
 
 }
 
