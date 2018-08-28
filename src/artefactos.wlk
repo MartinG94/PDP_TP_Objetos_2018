@@ -17,3 +17,8 @@ object collarDivino {
 	method unidadDeLucha() = self.perlas()
 
 }
+
+object mascaraOscura{
+	
+	
+}
