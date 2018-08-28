@@ -20,5 +20,7 @@ object collarDivino {
 
 object mascaraOscura{
 	
+	method unidadDeLucha() = 
+		4.max(mundo.fuerzaOscura() / 2)
 	
 }
