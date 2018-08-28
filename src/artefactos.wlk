@@ -1,3 +1,5 @@
+import mundo.*
+
 object espadaDelDestino {
 
 	method unidadDeLucha() = 3
