@@ -24,15 +24,15 @@ object ronaldo {
 		artefactos.clear()
 		artefactos.addAll(nuevosArtefactos)
 	}
-	
-	method removerUnArtefacto(unArtefacto){
+
+	method removerUnArtefacto(unArtefacto) {
 		self.artefactos().remove(unArtefacto)
 	}
-	
-	method eliminarTodosLosArtefactos(){
+
+	method eliminarTodosLosArtefactos() {
 		self.artefactos().clear()
 	}
-	
+
 	method agregarUnArtefacto(unArtefacto) {
 		self.artefactos().add(unArtefacto)
 	}
@@ -40,7 +40,10 @@ object ronaldo {
 	method nivelDeHechiceria() = (self.valorBase() * self.hechizoPreferido().poder()) + mundo.fuerzaOscura()
 
 	method habilidadDeLucha() = self.valorBase() + self.artefactos().sum({ artefacto => artefacto.unidadDeLucha() })
-	
+
 	method teCreesPoderoso() = self.hechizoPreferido().sosPoderoso()
+	
+	method sosMejorEnLaLucha() = self.habilidadDeLucha() > self.nivelDeHechiceria()
+	
 }
 
