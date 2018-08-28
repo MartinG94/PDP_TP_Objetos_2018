@@ -1,3 +1,5 @@
+import mundo.*
+
 object ronaldo {
 
 	var valorBase
