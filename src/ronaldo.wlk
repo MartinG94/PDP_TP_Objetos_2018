@@ -27,10 +27,9 @@ object ronaldo {
 		artefactos.add(unArtefacto)
 	}
 
-	method nivelDeHechiceria() = 
-		(self.valorBase() * self.hechizoPreferido().poder()) + mundo.fuerzaOscura()
-
+	method nivelDeHechiceria() = (self.valorBase() * self.hechizoPreferido().poder()) + mundo.fuerzaOscura()
 
 	method habilidadDeLucha() = self.valorBase() + self.artefactos().sum({ artefacto => artefacto.unidadDeLucha() })
 
 }
+

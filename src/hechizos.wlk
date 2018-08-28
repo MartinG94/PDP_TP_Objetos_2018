@@ -21,3 +21,4 @@ object hechizoBasico {
 	method sosPoderoso() = self.poder() > 15
 
 }
+
