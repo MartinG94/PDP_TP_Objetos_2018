@@ -1,4 +1,5 @@
 import ronaldo.*
+import hechizos.*
 
 describe "Tests sobre ronaldo y los hechizos" {
 
