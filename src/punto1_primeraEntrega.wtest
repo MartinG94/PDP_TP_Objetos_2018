@@ -1,3 +1,4 @@
+import mundo.*
 import ronaldo.*
 import hechizos.*
 
@@ -5,7 +6,7 @@ describe "Tests sobre ronaldo y los hechizos" {
 
 	fixture {
 		ronaldo.valorBase(3)
-		ronaldo.fuerzaOscura(5)
+		mundo.fuerzaOscura(5)
 		ronaldo.hechizoPreferido(espectroMalefico)
 	}
 
@@ -24,7 +25,7 @@ describe "Tests sobre ronaldo y los hechizos" {
 	}
 
 	test "Ocurre un eclipse y el nivel de ronaldo es de 61" {
-		ronaldo.ocurreUnEclipse()
+		mundo.ocurreUnEclipse()
 		assert.equals(ronaldo.nivelDeHechiceria(), 61)
 	}
 
