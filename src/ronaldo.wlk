@@ -3,6 +3,7 @@ object ronaldo {
 	var valorBase
 	var fuerzaOscura
 	var hechizoPreferido
+	const artefactos = []
 
 	method valorBase() = valorBase
 
@@ -22,11 +23,26 @@ object ronaldo {
 		hechizoPreferido = otroHechizo
 	}
 
-	method nivelDeHechiceria() = (valorBase * hechizoPreferido.poder()) + fuerzaOscura
+	method artefactos() = artefactos
+
+	method artefactos(nuevosArtefactos) {
+		artefactos.clear()
+		artefactos.addAll(nuevosArtefactos)
+	}
+
+	method agregarArtefacto(unArtefacto) {
+		artefactos.add(unArtefacto)
+	}
+
+	method nivelDeHechiceria() = 
+		(self.valorBase() * self.hechizoPreferido().poder()) + self.fuerzaOscura()
 
 	method ocurreUnEclipse() {
 		self.fuerzaOscura(self.fuerzaOscura() * 2)
 	}
+
+	method habilidadDeLucha() = 
+		self.valorBase() + artefactos.sum({artefacto => artefacto.unidadDeLucha()})
 
 }
 
