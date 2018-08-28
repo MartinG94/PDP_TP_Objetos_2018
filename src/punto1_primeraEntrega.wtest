@@ -1,6 +1,6 @@
 import ronaldo.*
 
-describe "hechiceria" {
+describe "Tests sobre ronaldo y los hechizos" {
 	
 	test "El hechizo preferido de ronaldo es espectro malefico, y su nivel 56" {
 		
