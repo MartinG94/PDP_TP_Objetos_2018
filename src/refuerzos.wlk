@@ -1,4 +1,6 @@
-object abc {
+object cotaDeMalla {
 	
+	method valorDeRefuerzo() = 1
 	
 }
+
