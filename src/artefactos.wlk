@@ -26,3 +26,27 @@ object mascaraOscura {
 
 }
 
+object armadura {
+	
+	var refuerzo
+	
+	method refuerzo() = refuerzo
+	
+	method refuerzo(otroRefuerzo){
+		refuerzo = otroRefuerzo
+	}
+	
+	method unidadDeLucha() = 2 + self.refuerzo().valorDeRefuerzo()
+	
+}
+
+
+
+
+
+
+
+
+
+
+
