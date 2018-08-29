@@ -37,6 +37,6 @@ describe "group of tests" {
 	
 	test "Si se elimina la mascara oscura de los artefactos de ronaldo, su habilidad es 9"{
 		ronaldo.removerUnArtefacto(mascaraOscura)
-		assert.equals(ronaldo.habilidadDeLucha, 9)
+		assert.equals(ronaldo.habilidadDeLucha(), 9)
 	}
 }
