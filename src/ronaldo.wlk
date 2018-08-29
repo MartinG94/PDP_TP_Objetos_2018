@@ -43,6 +43,8 @@ object ronaldo {
 	method teCreesPoderoso() = self.hechizoPreferido().sosPoderoso()
 
 	method sosMejorEnLaLucha() = self.habilidadDeLucha() > self.nivelDeHechiceria()
+	
+	method estasCargado() = self.artefactos().size() >= 5
 
 }
 
