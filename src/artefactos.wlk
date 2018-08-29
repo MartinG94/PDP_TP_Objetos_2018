@@ -44,7 +44,9 @@ object armadura {
 		refuerzo = otroRefuerzo
 	}
 
-	method unidadDeLucha() = 2 + self.refuerzo().valorDeRefuerzo()
+	method unidadDeLucha() = 2 + 
+		if(refuerzo != null) {self.refuerzo().valorDeRefuerzo()}
+		else {0}
 
 }
 
