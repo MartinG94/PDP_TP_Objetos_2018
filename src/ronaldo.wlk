@@ -21,7 +21,6 @@ object ronaldo {
 	method artefactos() = artefactos
 
 	method artefactos(nuevosArtefactos) {
-		artefactos.clear()
 		artefactos.addAll(nuevosArtefactos)
 	}
 
@@ -42,8 +41,8 @@ object ronaldo {
 	method habilidadDeLucha() = self.valorBase() + self.artefactos().sum({ artefacto => artefacto.unidadDeLucha() })
 
 	method teCreesPoderoso() = self.hechizoPreferido().sosPoderoso()
-	
+
 	method sosMejorEnLaLucha() = self.habilidadDeLucha() > self.nivelDeHechiceria()
-	
+
 }
 
