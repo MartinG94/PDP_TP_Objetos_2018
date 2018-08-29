@@ -2,7 +2,7 @@ import mundo.*
 import ronaldo.*
 import artefactos.*
 
-describe "group of tests" {
+describe "Tests sobre la habilidad de lucha de ronaldo" {
 	
 	fixture{
 		mundo.fuerzaOscura(5)
@@ -12,7 +12,7 @@ describe "group of tests" {
 	}
 
 	test "Si ronaldo no tiene artefactos, su habilidad de lucha es 1" {
-		ronaldo.eliminarTodosLosArtefactos()
+		ronaldo.desequipate()
 		assert.equals(ronaldo.habilidadDeLucha(), 1)
 	}
 	
@@ -36,7 +36,7 @@ describe "group of tests" {
 	}
 	
 	test "Si se elimina la mascara oscura de los artefactos de ronaldo, su habilidad es 9"{
-		ronaldo.removerUnArtefacto(mascaraOscura)
+		ronaldo.desequipaUnArtefacto(mascaraOscura)
 		assert.equals(ronaldo.habilidadDeLucha(), 9)
 	}
 }
