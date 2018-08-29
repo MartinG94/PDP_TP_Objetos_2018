@@ -24,15 +24,15 @@ object ronaldo {
 		artefactos.addAll(nuevosArtefactos)
 	}
 
-	method removerUnArtefacto(unArtefacto) {
+	method desequipaUnArtefacto(unArtefacto) {
 		self.artefactos().remove(unArtefacto)
 	}
 
-	method eliminarTodosLosArtefactos() {
+	method desequipate() {
 		self.artefactos().clear()
 	}
 
-	method agregarUnArtefacto(unArtefacto) {
+	method agregaUnArtefacto(unArtefacto) {
 		self.artefactos().add(unArtefacto)
 	}
 
