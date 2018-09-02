@@ -44,9 +44,24 @@ object armadura {
 		refuerzo = otroRefuerzo
 	}
 
-	method unidadDeLucha() = 2 + 
-		if(refuerzo != null) {self.refuerzo().valorDeRefuerzo()}
+	method unidadDeLucha() = 2 + if(refuerzo != null) {self.refuerzo().valorDeRefuerzo()}
 		else {0}
 
+}
+
+object espejoFantastico{
+	
+	var portador
+	
+	method portador() = portador
+	
+	method portador(unPortador){
+		portador = unPortador
+	}
+	
+	method unidadDeLucha() = self.laMejorPertenencia()
+	
+	method laMejorPertenencia() = portador.artefactos().max({artefacto => artefacto.unidadDeLucha()})
+	
 }
 
