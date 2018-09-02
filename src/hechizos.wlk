@@ -25,3 +25,39 @@ object hechizoBasico {
 	method valorDeRefuerzo() = self.poder()
 	
 }
+
+
+object libroDeHechizos{
+	
+	const hechizos = []
+	
+	method hechizos() = hechizos
+	
+	method nuevosHechizos(nuevosHechizos){
+		self.hechizos().addAll(nuevosHechizos)
+	}
+	
+	method eliminaUnHechizo(unHechizo){
+		self.hechizos().remove(unHechizo)
+	}
+	
+	method borraTodosLosHechizos(){
+		self.hechizos().clear()
+	}
+	
+	method incorporaUnHechizo(unHechizo){
+		self.hechizos().add(unHechizo)
+	}
+	
+	method poder() = self.hechizos().sum({hechizo => hechizo.poder()})
+}
+
+
+
+
+
+
+
+
+
+
