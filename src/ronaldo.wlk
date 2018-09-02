@@ -21,7 +21,7 @@ object ronaldo {
 	method artefactos() = artefactos
 
 	method artefactos(nuevosArtefactos) {
-		artefactos.addAll(nuevosArtefactos)
+		self.artefactos().addAll(nuevosArtefactos)
 	}
 
 	method desequipaUnArtefacto(unArtefacto) {
