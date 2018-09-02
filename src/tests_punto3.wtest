@@ -1,0 +1,64 @@
+import mundo.*
+import ronaldo.*
+import hechizos.*
+import artefactos.*
+import refuerzos.*
+
+describe "group of tests" {
+
+	fixture {
+		mundo.fuerzaOscura(5)
+		collarDivino.perlas(5)
+		ronaldo.valorBase(3)
+		armadura.portador(ronaldo)
+		espejoFantastico.portador(ronaldo)
+		ronaldo.artefactos([ espadaDelDestino, collarDivino, mascaraOscura, armadura, espejoFantastico ])
+	}
+
+	test "Ronaldo está cargado por tener 5 artefactos" {
+		assert.that(ronaldo.estasCargado())
+	}
+
+	test "Ronaldo se saca la armadura y ya no está cargado" {
+		ronaldo.desequipaUnArtefacto(armadura)
+		assert.notThat(ronaldo.estasCargado())
+	}
+
+	test "Ronaldo tiene 20 puntos de habilidad de lucha" {
+		assert.equals(ronaldo.habilidadDeLucha(), 20)
+	}
+	
+	test "Si la armadura de ronaldo tiene una bendicion de refuerzo, su habilidad de lucha sera 58"{
+		armadura.refuerzo(bendicion)
+		assert.equals(ronaldo.habilidadDeLucha(), 58)
+	}
+	
+	test "Si la armadura de ronaldo tiene una cota de malla de refuerzo, su habilidad de lucha sera 3"{
+		armadura.refuerzo(cotaDeMalla)
+		assert.equals(ronaldo.habilidadDeLucha(), 3)
+	}
+	
+	test "Si la armadura de ronaldo tiene un hechizo basico de refuerzo, su habilidad de lucha será de 12"{
+		armadura.refuerzo(hechizoBasico)
+		assert.equals(ronaldo.habilidadDeLucha(), 12)
+	}
+	
+	test "Si la armadura de ronaldo tiene un espectro malefico de refuerzo, su habilidad de lucha sera de 19"{
+		armadura.refuerzo(espectroMalefico)
+		assert.equals(ronaldo.habilidadDeLucha(), 19)
+	}
+	
+	test "Si ronaldo sólo tiene al espejo fantastico entre sus artefactos, su habilidad de lucha sera de 1"{
+		ronaldo.desequipate()
+		ronaldo.agregaUnArtefacto(espejoFantastico)
+		assert.equals(ronaldo.habilidadDeLucha(), 1)
+	}
+	
+	test "Si el hechizo preferido de ronaldo es un libro de hechizos con el espectro malefico y el hechizo basico, su habilidad de lucha sera de 56"{
+		libroDeHechizos.hechizos([espectroMalefico, hechizoBasico])
+		ronaldo.hechizoPreferido(libroDeHechizos)
+		assert.equals(robaldo.habilidadDeLucha(), 56)
+	}
+
+}
+
