@@ -33,7 +33,7 @@ object libroDeHechizos{
 	
 	method hechizos() = hechizos
 	
-	method nuevosHechizos(nuevosHechizos){
+	method hechizos(nuevosHechizos){
 		self.hechizos().addAll(nuevosHechizos)
 	}
 	
