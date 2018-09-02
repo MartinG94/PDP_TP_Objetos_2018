@@ -59,7 +59,7 @@ object espejoFantastico{
 		portador = unPortador
 	}
 	
-	method unidadDeLucha() = self.portador().artefactos().max({artefacto => artefacto.unidadDeLucha()})
+	method unidadDeLucha() = self.portador().artefactos().max({artefacto => artefacto.unidadDeLucha()}).unidadDeLucha()
 	
 }
 
