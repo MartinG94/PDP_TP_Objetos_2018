@@ -11,7 +11,9 @@ object espectroMalefico {
 	method poder() = self.nombre().size()
 
 	method sosPoderoso() = self.poder() > 15
-
+	
+	method valorDeRefuerzo() = self.poder()
+	
 }
 
 object hechizoBasico {
@@ -19,6 +21,7 @@ object hechizoBasico {
 	method poder() = 10
 
 	method sosPoderoso() = self.poder() > 15
-
+	
+	method valorDeRefuerzo() = self.poder()
+	
 }
-
