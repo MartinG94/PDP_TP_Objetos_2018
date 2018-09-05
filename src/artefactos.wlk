@@ -33,8 +33,12 @@ object espejoFantastico {
 
 	method unidadDeLucha(unJugador) {
 		unJugador.artefactos().remove(self)
-		return unJugador.artefactos().max({ artefacto => artefacto.unidadDeLucha(unJugador)}).unidadDeLucha(unJugador) // TODO
-	} // TODO Falta desarrollar lo que hace cuando en los artefactos sólo está él mismo
+		if (unJugador.artefactos().isEmpty()) {
+			return 0
+		} else {
+			return unJugador.artefactos().max({ artefacto => artefacto.unidadDeLucha(unJugador) }).unidadDeLucha(unJugador)
+		}
+	}
 
 }
 
