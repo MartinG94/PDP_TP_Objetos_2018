@@ -23,10 +23,9 @@ object mascaraOscura {
 
 object armadura {
 
-	var property refuerzo
+	var property refuerzo = sinRefuerzo
 
-	method unidadDeLucha(unJugador) = 2 + if(refuerzo != null) {self.refuerzo().valorDeRefuerzo(unJugador)}
-		else {0} // TODO No debería usarse IF
+	method unidadDeLucha(unJugador) = 2 + self.refuerzo().valorDeRefuerzo(unJugador)
 
 }
 
