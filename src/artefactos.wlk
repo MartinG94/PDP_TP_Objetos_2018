@@ -3,48 +3,38 @@ import refuerzos.*
 
 object espadaDelDestino {
 
-	method unidadDeLucha() = 3
+	method unidadDeLucha(unJugador) = 3
 
 }
 
 object collarDivino {
 
-	var perlas
+	var property perlas
 
-	method perlas() = perlas
-
-	method perlas(cantidadDePerlas) {
-		perlas = cantidadDePerlas
-	}
-
-	method unidadDeLucha() = self.perlas()
+	method unidadDeLucha(unJugador) = self.perlas()
 
 }
 
 object mascaraOscura {
 
-	method unidadDeLucha() = 4.max(mundo.fuerzaOscura() / 2)
+	method unidadDeLucha(unJugador) = 4.max(mundo.fuerzaOscura() / 2)
 
 }
 
 object armadura {
 
-	var refuerzo
+	var property refuerzo
 
-	method refuerzo() = refuerzo
-
-	method refuerzo(otroRefuerzo) {
-		refuerzo = otroRefuerzo
-	}
-
-	method unidadDeLucha() = 2 + if(refuerzo != null) {self.refuerzo().valorDeRefuerzo()}
+	method unidadDeLucha(unJugador) = 2 + if(refuerzo != null) {self.refuerzo().valorDeRefuerzo(unJugador)}
 		else {0}
 
 }
 
-object espejoFantastico{
-	
-	method unidadDeLucha() = self.portador().artefactos().max({artefacto => artefacto.unidadDeLucha()}).unidadDeLucha()
-	
+object espejoFantastico {
+
+	method unidadDeLucha(unJugador) {
+	// TODO 
+	}
+
 }
 
