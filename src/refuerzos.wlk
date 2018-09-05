@@ -3,7 +3,7 @@ import artefactos.*
 
 object cotaDeMalla {
 	
-	method valorDeRefuerzo() = 1
+	method valorDeRefuerzo(unJugador) = 1
 	
 }
 
