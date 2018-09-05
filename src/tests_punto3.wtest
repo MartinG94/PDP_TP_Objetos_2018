@@ -54,7 +54,7 @@ describe "Tests sobre hechicería y lucha avanzada" {
 		assert.equals(ronaldo.habilidadDeLucha(), 1)
 	}
 	
-	test "Si el hechizo preferido de ronaldo es un libro de hechizos con el espectro malefico y el hechizo basico, su habilidad de lucha sera de 56"{
+	test "Si el hechizo preferido de ronaldo es un libro de hechizos con el espectro malefico y el hechizo basico, su nivelDeHechicería sera de 56"{
 		ronaldo.valorBase(3)
 		libroDeHechizos.hechizos([espectroMalefico, hechizoBasico])
 		ronaldo.hechizoPreferido(libroDeHechizos)
