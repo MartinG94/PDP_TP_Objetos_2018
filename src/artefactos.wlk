@@ -26,15 +26,12 @@ object armadura {
 	var property refuerzo
 
 	method unidadDeLucha(unJugador) = 2 + if(refuerzo != null) {self.refuerzo().valorDeRefuerzo(unJugador)}
-		else {0}
+		else {0} // TODO No debería usarse IF
 
 }
 
 object espejoFantastico {
 
-	method unidadDeLucha(unJugador) {
-	// TODO 
-	}
-
+	method unidadDeLucha(unJugador) = 5 // TODO
 }
 
