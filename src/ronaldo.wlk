@@ -2,23 +2,9 @@ import mundo.*
 
 object ronaldo {
 
-	var valorBase
-	var hechizoPreferido
-	const artefactos = []
-
-	method valorBase() = valorBase
-
-	method valorBase(unValor) {
-		valorBase = unValor
-	}
-
-	method hechizoPreferido() = hechizoPreferido
-
-	method hechizoPreferido(otroHechizo) {
-		hechizoPreferido = otroHechizo
-	}
-
-	method artefactos() = artefactos
+	var property valorBase
+	var property hechizoPreferido
+	const property artefactos = []
 
 	method artefactos(nuevosArtefactos) {
 		self.artefactos().addAll(nuevosArtefactos)
