@@ -9,7 +9,7 @@ object cotaDeMalla {
 
 object bendicion {
 	
-	method valorDeRefuerzo() = 
+	method valorDeRefuerzo(unJugador) = unJugador.nivelDeHechiceria()
 	
 }
 
