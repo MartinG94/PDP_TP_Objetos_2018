@@ -9,7 +9,7 @@ object cotaDeMalla {
 
 object bendicion {
 	
-	method valorDeRefuerzo() = armadura.portador().nivelDeHechiceria()
+	method valorDeRefuerzo() = 
 	
 }
 
