@@ -13,3 +13,8 @@ object bendicion {
 	
 }
 
+object sinRefuerzo{
+	
+	method valorDeRefuerzo(unJugador) = 0
+	
+}
