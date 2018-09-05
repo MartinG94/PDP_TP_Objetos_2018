@@ -5,9 +5,9 @@ object espectroMalefico {
 	method poder() = self.nombre().size()
 
 	method sosPoderoso() = self.poder() > 15
-	
+
 	method valorDeRefuerzo(unJugador) = self.poder()
-	
+
 }
 
 object hechizoBasico {
@@ -15,33 +15,34 @@ object hechizoBasico {
 	method poder() = 10
 
 	method sosPoderoso() = self.poder() > 15
-	
+
 	method valorDeRefuerzo(unJugador) = self.poder()
-	
+
 }
 
+object libroDeHechizos {
 
-object libroDeHechizos{
-	
 	const property hechizos = []
-	
-	method hechizos(nuevosHechizos){
+
+	method hechizos(nuevosHechizos) {
 		self.hechizos().addAll(nuevosHechizos)
 	}
-	
-	method eliminaUnHechizo(unHechizo){
+
+	method eliminaUnHechizo(unHechizo) {
 		self.hechizos().remove(unHechizo)
 	}
-	
-	method borraTodosLosHechizos(){
+
+	method borraTodosLosHechizos() {
 		self.hechizos().clear()
 	}
-	
-	method incorporaUnHechizo(unHechizo){
+
+	method incorporaUnHechizo(unHechizo) {
 		self.hechizos().add(unHechizo)
 	}
-	
-	method poder() = self.hechizos().sum({hechizo => hechizo.poder()})
-	
+
+	method poder() = self.hechizos().sum({ hechizo => hechizo.poder() })
+
 	method sosPoderoso() = self.poder() > 15
+
 }
+
