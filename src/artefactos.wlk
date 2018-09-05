@@ -30,13 +30,6 @@ object mascaraOscura {
 object armadura {
 
 	var refuerzo
-	var portador
-
-	method portador() = portador
-
-	method portador(unPortador) {
-		portador = unPortador
-	}
 
 	method refuerzo() = refuerzo
 
@@ -50,14 +43,6 @@ object armadura {
 }
 
 object espejoFantastico{
-	
-	var portador
-	
-	method portador() = portador
-	
-	method portador(unPortador){
-		portador = unPortador
-	}
 	
 	method unidadDeLucha() = self.portador().artefactos().max({artefacto => artefacto.unidadDeLucha()}).unidadDeLucha()
 	
