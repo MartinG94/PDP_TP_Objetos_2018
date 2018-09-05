@@ -4,14 +4,13 @@ import hechizos.*
 import artefactos.*
 import refuerzos.*
 
-describe "group of tests" {
+describe "Tests sobre hechicería y lucha avanzada" {
 
 	fixture {
 		mundo.fuerzaOscura(5)
 		collarDivino.perlas(5)
 		ronaldo.valorBase(3)
-		armadura.portador(ronaldo)
-		espejoFantastico.portador(ronaldo)
+		ronaldo.hechizoPreferido(espectroMalefico)
 		ronaldo.artefactos([ espadaDelDestino, collarDivino, mascaraOscura, armadura, espejoFantastico ])
 	}
 
