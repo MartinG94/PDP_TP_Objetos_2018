@@ -39,8 +39,10 @@ object libroDeHechizos {
 	method incorporaUnHechizo(unHechizo) {
 		self.hechizos().add(unHechizo)
 	}
-
-	method poder() = self.hechizos().sum({ hechizo => hechizo.poder() })
+	
+	method cualesSonPoderosos() = self.hechizos().filter({hechizo => hechizo.sosPoderoso()})
+	
+	method poder() = self.cualesSonPoderosos().sum({ hechizo => hechizo.poder() })
 
 	method sosPoderoso() = self.poder() > 15
 
