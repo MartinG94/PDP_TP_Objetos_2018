@@ -32,7 +32,7 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 	
 	test "Luego de un eclipse, la unidad de lucha de la mascara oscura es 5"{
 		mundo.ocurreUnEclipse()
-		assert.equals(mascaraOscura.unidadDeLucha(), 5)
+		assert.equals(mascaraOscura.unidadDeLucha(ronaldo), 5)
 	}
 	
 	test "Si se elimina la mascara oscura de los artefactos de ronaldo, su habilidad es 9"{
