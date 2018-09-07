@@ -38,6 +38,7 @@ object espejoFantastico {
 		} else {
 			return 0
 		}
+		unJugador.artefactos().add(self)
 	}
 
 }
