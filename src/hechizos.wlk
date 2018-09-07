@@ -14,7 +14,7 @@ object hechizoBasico {
 
 	method poder() = 10
 
-	method sosPoderoso() = self.poder() > 15
+	method sosPoderoso() = false
 
 	method valorDeRefuerzo(unJugador) = self.poder()
 
