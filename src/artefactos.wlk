@@ -30,12 +30,15 @@ object armadura {
 }
 
 object espejoFantastico {
+	
+	method sosDiferenteA(unArtefacto) = unArtefacto != self
+	
+	method excluiteDeLaListaDeArtefactos(unJugador) = unJugador.artefactos().filter({ artefacto => self.sosDiferenteA(artefacto) })
 
-	method copiaAlMejorArtefactoDe(unJugador) = unJugador.artefactos().max({ artefacto => artefacto.unidadDeLucha(unJugador)}).unidadDeLucha(unJugador)
-
+	method copiaAlMejorArtefactoDe(unJugador) = self.excluiteDeLaListaDeArtefactos(unJugador).max({ artefacto => artefacto.unidadDeLucha(unJugador)}).unidadDeLucha(unJugador)
+	
 	method unidadDeLucha(unJugador) {
-		unJugador.artefactos().remove(self)
-		if (unJugador.artefactos().isEmpty().negate()) {
+		if (self.excluiteDeLaListaDeArtefactos(unJugador).isEmpty().negate()) {
 			return self.copiaAlMejorArtefactoDe(unJugador)
 		} else {
 			return 0
