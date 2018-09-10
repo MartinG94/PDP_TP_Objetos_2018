@@ -7,12 +7,13 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 	fixture{
 		mundo.fuerzaOscura(5)
 		collarDivino.perlas(5)
-		ronaldo.valorBase(1)
+		ronaldo.valorBaseHechiceria(3)
+		ronaldo.valorBaseLucha(1)
 		ronaldo.artefactos([espadaDelDestino, collarDivino, mascaraOscura])
 	}
 
 	test "Si ronaldo no tiene artefactos, su habilidad de lucha es 1" {
-		ronaldo.desequipate()
+		ronaldo.desequipateTodo()
 		assert.equals(ronaldo.habilidadDeLucha(), 1)
 	}
 	
@@ -26,7 +27,7 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 	}
 	
 	test "Si el valor base de ronaldo es 8, su habilidad de lucha es 20"{
-		ronaldo.valorBase(8)
+		ronaldo.valorBaseLucha(8)
 		assert.equals(ronaldo.habilidadDeLucha(), 20)
 	}
 	
@@ -36,7 +37,7 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 	}
 	
 	test "Si se elimina la mascara oscura de los artefactos de ronaldo, su habilidad es 9"{
-		ronaldo.desequipaUnArtefacto(mascaraOscura)
+		ronaldo.desequipate(mascaraOscura)
 		assert.equals(ronaldo.habilidadDeLucha(), 9)
 	}
 }
