@@ -27,35 +27,35 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	test "Ronaldo tiene 20 puntos de habilidad de lucha" {
 		assert.equals(ronaldo.habilidadDeLucha(), 20)
 	}
-	
-	test "Si la armadura de ronaldo tiene una bendicion de refuerzo, su habilidad de lucha sera 58"{
+
+	test "Si la armadura de ronaldo tiene una bendicion de refuerzo, su habilidad de lucha sera 58" {
 		armadura.refuerzo(bendicion)
 		assert.equals(armadura.unidadDeLucha(ronaldo), 58)
 	}
-	
-	test "Si la armadura de ronaldo tiene una cota de malla de refuerzo, su habilidad de lucha sera 3"{
+
+	test "Si la armadura de ronaldo tiene una cota de malla de refuerzo, su habilidad de lucha sera 3" {
 		armadura.refuerzo(cotaDeMalla)
 		assert.equals(armadura.unidadDeLucha(ronaldo), 3)
 	}
-	
-	test "Si la armadura de ronaldo tiene un hechizo basico de refuerzo, su habilidad de lucha será de 12"{
+
+	test "Si la armadura de ronaldo tiene un hechizo basico de refuerzo, su habilidad de lucha será de 12" {
 		armadura.refuerzo(hechizoBasico)
 		assert.equals(armadura.unidadDeLucha(ronaldo), 12)
 	}
-	
-	test "Si la armadura de ronaldo tiene un espectro malefico de refuerzo, su habilidad de lucha sera de 19"{
+
+	test "Si la armadura de ronaldo tiene un espectro malefico de refuerzo, su habilidad de lucha sera de 19" {
 		armadura.refuerzo(espectroMalefico)
 		assert.equals(armadura.unidadDeLucha(ronaldo), 19)
 	}
-	
-	test "Si ronaldo sólo tiene al espejo fantastico entre sus artefactos, su habilidad de lucha sera de 1"{
+
+	test "Si ronaldo sólo tiene al espejo fantastico entre sus artefactos, su habilidad de lucha sera de 1" {
 		ronaldo.desequipateTodo()
 		ronaldo.equipate(espejoFantastico)
 		assert.equals(ronaldo.habilidadDeLucha(), 1)
 	}
-	
-	test "Si el hechizo preferido de ronaldo es un libro de hechizos con el espectro malefico y el hechizo basico, su nivelDeHechicería sera de 56"{
-		libroDeHechizos.hechizos([espectroMalefico, hechizoBasico])
+
+	test "Si el hechizo preferido de ronaldo es un libro de hechizos con el espectro malefico y el hechizo basico, su nivelDeHechicería sera de 56" {
+		libroDeHechizos.hechizos([ espectroMalefico, hechizoBasico ])
 		ronaldo.hechizoPreferido(libroDeHechizos)
 		assert.equals(ronaldo.nivelDeHechiceria(), 56)
 	}
