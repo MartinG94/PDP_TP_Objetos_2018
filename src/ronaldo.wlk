@@ -2,7 +2,8 @@ import mundo.*
 
 object ronaldo {
 
-	var property valorBase
+	var property valorBaseHechiceria
+	var property valorBaseLucha
 	var property hechizoPreferido
 	const property artefactos = []
 
@@ -10,21 +11,21 @@ object ronaldo {
 		self.artefactos().addAll(nuevosArtefactos)
 	}
 
-	method desequipaUnArtefacto(unArtefacto) {
+	method desequipate(unArtefacto) {
 		self.artefactos().remove(unArtefacto)
 	}
 
-	method desequipate() {
+	method desequipateTodo() {
 		self.artefactos().clear()
 	}
 
-	method agregaUnArtefacto(unArtefacto) {
+	method equipate(unArtefacto) {
 		self.artefactos().add(unArtefacto)
 	}
 
-	method nivelDeHechiceria() = (self.valorBase() * self.hechizoPreferido().poder()) + mundo.fuerzaOscura()
+	method nivelDeHechiceria() = (self.valorBaseHechiceria() * self.hechizoPreferido().poder()) + mundo.fuerzaOscura()
 
-	method habilidadDeLucha() = self.valorBase() + self.artefactos().sum({ artefacto => artefacto.unidadDeLucha(self) })
+	method habilidadDeLucha() = self.valorBaseLucha() + self.artefactos().sum({ artefacto => artefacto.unidadDeLucha(self) })
 
 	method teCreesPoderoso() = self.hechizoPreferido().sosPoderoso()
 
