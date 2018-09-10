@@ -9,7 +9,8 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	fixture {
 		mundo.fuerzaOscura(5)
 		collarDivino.perlas(5)
-		ronaldo.valorBase(1)
+		ronaldo.valorBaseHechiceria(3)
+		ronaldo.valorBaseLucha(1)
 		ronaldo.hechizoPreferido(espectroMalefico)
 		ronaldo.artefactos([ espadaDelDestino, collarDivino, mascaraOscura, armadura, espejoFantastico ])
 	}
@@ -19,7 +20,7 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	}
 
 	test "Ronaldo se saca la armadura y ya no está cargado" {
-		ronaldo.desequipaUnArtefacto(armadura)
+		ronaldo.desequipate(armadura)
 		assert.notThat(ronaldo.estasCargado())
 	}
 
@@ -28,7 +29,6 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	}
 	
 	test "Si la armadura de ronaldo tiene una bendicion de refuerzo, su habilidad de lucha sera 58"{
-		ronaldo.valorBase(3)
 		armadura.refuerzo(bendicion)
 		assert.equals(armadura.unidadDeLucha(ronaldo), 58)
 	}
@@ -49,13 +49,12 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	}
 	
 	test "Si ronaldo sólo tiene al espejo fantastico entre sus artefactos, su habilidad de lucha sera de 1"{
-		ronaldo.desequipate()
-		ronaldo.agregaUnArtefacto(espejoFantastico)
+		ronaldo.desequipateTodo()
+		ronaldo.equipate(espejoFantastico)
 		assert.equals(ronaldo.habilidadDeLucha(), 1)
 	}
 	
 	test "Si el hechizo preferido de ronaldo es un libro de hechizos con el espectro malefico y el hechizo basico, su nivelDeHechicería sera de 56"{
-		ronaldo.valorBase(3)
 		libroDeHechizos.hechizos([espectroMalefico, hechizoBasico])
 		ronaldo.hechizoPreferido(libroDeHechizos)
 		assert.equals(ronaldo.nivelDeHechiceria(), 56)
