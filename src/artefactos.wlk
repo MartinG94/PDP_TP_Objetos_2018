@@ -31,10 +31,12 @@ object armadura {
 
 object espejoFantastico {
 
+	method copiaAlMejorArtefactoDe(unJugador) = unJugador.artefactos().max({ artefacto => artefacto.unidadDeLucha(unJugador)}).unidadDeLucha(unJugador)
+
 	method unidadDeLucha(unJugador) {
 		unJugador.artefactos().remove(self)
 		if (unJugador.artefactos().isEmpty().negate()) {
-			return unJugador.artefactos().max({ artefacto => artefacto.unidadDeLucha(unJugador) }).unidadDeLucha(unJugador)
+			return self.copiaAlMejorArtefactoDe(unJugador)
 		} else {
 			return 0
 		}
