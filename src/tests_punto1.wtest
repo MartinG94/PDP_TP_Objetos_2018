@@ -5,7 +5,7 @@ import hechizos.*
 describe "Tests sobre ronaldo y los hechizos" {
 
 	fixture {
-		ronaldo.valorBase(3)
+		ronaldo.valorBaseHechiceria(3)
 		mundo.fuerzaOscura(5)
 		ronaldo.hechizoPreferido(espectroMalefico)
 	}
