@@ -1,6 +1,6 @@
 import mundo.*
 
-object ronaldo {
+object rolando {
 
 	var property valorBaseHechiceria
 	var property valorBaseLucha

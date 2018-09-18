@@ -1,5 +1,5 @@
 import mundo.*
-import ronaldo.*
+import rolando.*
 import hechizos.*
 import artefactos.*
 import refuerzos.*
@@ -9,55 +9,55 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	fixture {
 		mundo.fuerzaOscura(5)
 		collarDivino.perlas(5)
-		ronaldo.valorBaseHechiceria(3)
-		ronaldo.valorBaseLucha(1)
-		ronaldo.hechizoPreferido(espectroMalefico)
-		ronaldo.artefactos([ espadaDelDestino, collarDivino, mascaraOscura, armadura, espejoFantastico ])
+		rolando.valorBaseHechiceria(3)
+		rolando.valorBaseLucha(1)
+		rolando.hechizoPreferido(espectroMalefico)
+		rolando.artefactos([ espadaDelDestino, collarDivino, mascaraOscura, armadura, espejoFantastico ])
 	}
 
 	test "Ronaldo está cargado por tener 5 artefactos" {
-		assert.that(ronaldo.estasCargado())
+		assert.that(rolando.estasCargado())
 	}
 
 	test "Ronaldo se saca la armadura y ya no está cargado" {
-		ronaldo.desequipate(armadura)
-		assert.notThat(ronaldo.estasCargado())
+		rolando.desequipate(armadura)
+		assert.notThat(rolando.estasCargado())
 	}
 
 	test "Ronaldo tiene 20 puntos de habilidad de lucha" {
-		assert.equals(ronaldo.habilidadDeLucha(), 20)
+		assert.equals(rolando.habilidadDeLucha(), 20)
 	}
 
 	test "Si la armadura de ronaldo tiene una bendicion de refuerzo, su habilidad de lucha sera 58" {
 		armadura.refuerzo(bendicion)
-		assert.equals(armadura.unidadDeLucha(ronaldo), 58)
+		assert.equals(armadura.unidadDeLucha(rolando), 58)
 	}
 
 	test "Si la armadura de ronaldo tiene una cota de malla de refuerzo, su habilidad de lucha sera 3" {
 		armadura.refuerzo(cotaDeMalla)
-		assert.equals(armadura.unidadDeLucha(ronaldo), 3)
+		assert.equals(armadura.unidadDeLucha(rolando), 3)
 	}
 
 	test "Si la armadura de ronaldo tiene un hechizo basico de refuerzo, su habilidad de lucha será de 12" {
 		armadura.refuerzo(hechizoBasico)
-		assert.equals(armadura.unidadDeLucha(ronaldo), 12)
+		assert.equals(armadura.unidadDeLucha(rolando), 12)
 	}
 
 	test "Si la armadura de ronaldo tiene un espectro malefico de refuerzo, su habilidad de lucha sera de 19" {
 		armadura.refuerzo(espectroMalefico)
-		assert.equals(armadura.unidadDeLucha(ronaldo), 19)
+		assert.equals(armadura.unidadDeLucha(rolando), 19)
 	}
 
 	test "Si ronaldo sólo tiene al espejo fantastico entre sus artefactos, su habilidad de lucha sera de 1" {
-		ronaldo.desequipateTodo()
-		ronaldo.equipate(espejoFantastico)
-		assert.equals(ronaldo.habilidadDeLucha(), 1)
+		rolando.desequipateTodo()
+		rolando.equipate(espejoFantastico)
+		assert.equals(rolando.habilidadDeLucha(), 1)
 	}
 
 	test "Si el hechizo preferido de ronaldo es un libro de hechizos con el espectro malefico y el hechizo basico, su nivelDeHechicería sera de 56" {
 		libroDeHechizos.hechizos([ espectroMalefico, hechizoBasico ])
-		ronaldo.hechizoPreferido(libroDeHechizos)
-		assert.equals(ronaldo.nivelDeHechiceria(), 56)
+		rolando.hechizoPreferido(libroDeHechizos)
+		assert.equals(rolando.nivelDeHechiceria(), 56)
 	}
 
 }

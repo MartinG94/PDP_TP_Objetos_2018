@@ -1,5 +1,5 @@
 import mundo.*
-import ronaldo.*
+import rolando.*
 import artefactos.*
 
 describe "Tests sobre la habilidad de lucha de ronaldo" {
@@ -7,38 +7,38 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 	fixture {
 		mundo.fuerzaOscura(5)
 		collarDivino.perlas(5)
-		ronaldo.valorBaseHechiceria(3)
-		ronaldo.valorBaseLucha(1)
-		ronaldo.artefactos([ espadaDelDestino, collarDivino, mascaraOscura ])
+		rolando.valorBaseHechiceria(3)
+		rolando.valorBaseLucha(1)
+		rolando.artefactos([ espadaDelDestino, collarDivino, mascaraOscura ])
 	}
 
 	test "Si ronaldo no tiene artefactos, su habilidad de lucha es 1" {
-		ronaldo.desequipateTodo()
-		assert.equals(ronaldo.habilidadDeLucha(), 1)
+		rolando.desequipateTodo()
+		assert.equals(rolando.habilidadDeLucha(), 1)
 	}
 
 	test "La habilidad de ronaldo con todos los artefactos es de 13" {
-		assert.equals(ronaldo.habilidadDeLucha(), 13)
+		assert.equals(rolando.habilidadDeLucha(), 13)
 	}
 
 	test "Si el collar divino tiene 3 perlas, la habilidad de lucha de ronaldo es de 11" {
 		collarDivino.perlas(3)
-		assert.equals(ronaldo.habilidadDeLucha(), 11)
+		assert.equals(rolando.habilidadDeLucha(), 11)
 	}
 
 	test "Si el valor base de ronaldo es 8, su habilidad de lucha es 20" {
-		ronaldo.valorBaseLucha(8)
-		assert.equals(ronaldo.habilidadDeLucha(), 20)
+		rolando.valorBaseLucha(8)
+		assert.equals(rolando.habilidadDeLucha(), 20)
 	}
 
 	test "Luego de un eclipse, la unidad de lucha de la mascara oscura es 5" {
 		mundo.ocurreUnEclipse()
-		assert.equals(mascaraOscura.unidadDeLucha(ronaldo), 5)
+		assert.equals(mascaraOscura.unidadDeLucha(rolando), 5)
 	}
 
 	test "Si se elimina la mascara oscura de los artefactos de ronaldo, su habilidad es 9" {
-		ronaldo.desequipate(mascaraOscura)
-		assert.equals(ronaldo.habilidadDeLucha(), 9)
+		rolando.desequipate(mascaraOscura)
+		assert.equals(rolando.habilidadDeLucha(), 9)
 	}
 
 }

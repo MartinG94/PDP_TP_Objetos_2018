@@ -1,32 +1,32 @@
 import mundo.*
-import ronaldo.*
+import rolando.*
 import hechizos.*
 
-describe "Tests sobre ronaldo y los hechizos" {
+describe "Tests sobre rolando y los hechizos" {
 
 	fixture {
-		ronaldo.valorBaseHechiceria(3)
+		rolando.valorBaseHechiceria(3)
 		mundo.fuerzaOscura(5)
-		ronaldo.hechizoPreferido(espectroMalefico)
+		rolando.hechizoPreferido(espectroMalefico)
 	}
 
 	test "El hechizo preferido de ronaldo es espectro malefico, y su nivel 56" {
-		assert.equals(ronaldo.nivelDeHechiceria(), 56)
+		assert.equals(rolando.nivelDeHechiceria(), 56)
 	}
 
 	test "El nombre de espectroMalefico cambia por uno mas largo, aumenta el nivel de ronaldo" {
 		espectroMalefico.nombre("espectro superrecontramalefico muajajaja")
-		assert.equals(ronaldo.nivelDeHechiceria(), 125)
+		assert.equals(rolando.nivelDeHechiceria(), 125)
 	}
 
 	test "El hechizo preferido de ronaldo cambia a hechizo basico, y su nivel es de 35" {
-		ronaldo.hechizoPreferido(hechizoBasico)
-		assert.equals(ronaldo.nivelDeHechiceria(), 35)
+		rolando.hechizoPreferido(hechizoBasico)
+		assert.equals(rolando.nivelDeHechiceria(), 35)
 	}
 
 	test "Ocurre un eclipse y el nivel de ronaldo es de 61" {
 		mundo.ocurreUnEclipse()
-		assert.equals(ronaldo.nivelDeHechiceria(), 61)
+		assert.equals(rolando.nivelDeHechiceria(), 61)
 	}
 
 	test "El espectro malefico es poderoso" {
