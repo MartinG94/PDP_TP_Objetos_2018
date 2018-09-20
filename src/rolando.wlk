@@ -1,4 +1,5 @@
 import mundo.*
+import artefactos.*
 
 object rolando {
 
@@ -26,7 +27,11 @@ object rolando {
 	method nivelDeHechiceria() = (self.valorBaseHechiceria() * self.hechizoPreferido().poder()) + mundo.fuerzaOscura()
 
 	method habilidadDeLucha() = self.valorBaseLucha() + self.artefactos().sum({ artefacto => artefacto.unidadDeLucha(self) })
-
+	
+	method ignoraA(unArtefacto) = self.artefactos().filter({ artefacto => artefacto != unArtefacto })
+	
+	method cualEsTuMejorArtefacto() = self.ignoraA(espejoFantastico).max({ artefacto => artefacto.unidadDeLucha(self) })
+	
 	method teCreesPoderoso() = self.hechizoPreferido().sosPoderoso()
 
 	method sosMejorEnLaLucha() = self.habilidadDeLucha() > self.nivelDeHechiceria()
