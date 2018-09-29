@@ -1,11 +1,11 @@
 import mundo.*
 import artefactos.*
 
-object rolando {
+class Jugador {
 
-	var property valorBaseHechiceria
+	var property valorBaseHechiceria  
 	var property valorBaseLucha
-	var property hechizoPreferido
+	var property hechizoPreferido 
 	const property artefactos = []
 
 	method artefactos(nuevosArtefactos) {

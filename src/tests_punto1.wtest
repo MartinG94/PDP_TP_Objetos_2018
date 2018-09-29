@@ -3,8 +3,10 @@ import rolando.*
 import hechizos.*
 
 describe "Tests sobre rolando y los hechizos" {
-
+    const rolando
 	fixture {
+	    
+	    rolando = new Jugador() 
 		rolando.valorBaseHechiceria(3)
 		mundo.fuerzaOscura(5)
 		rolando.hechizoPreferido(espectroMalefico)
