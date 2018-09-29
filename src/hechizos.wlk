@@ -1,8 +1,8 @@
-object espectroMalefico {
+class Logo {
 
-	var property nombre = "Espectro Malefico"
-
-	method poder() = self.nombre().size()
+	var property nombre 
+    var property multiplo 
+	method poder() = self.nombre().size() * self.multiplo()
 
 	method sosPoderoso() = self.poder() > 15
 
