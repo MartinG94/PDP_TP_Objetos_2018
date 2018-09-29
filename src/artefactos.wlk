@@ -1,7 +1,7 @@
 import mundo.*
 import refuerzos.*
 
-object espadaDelDestino {
+class Arma {
 
 	method unidadDeLucha(unJugador) = 3
 
@@ -15,9 +15,10 @@ object collarDivino {
 
 }
 
-object mascaraOscura {
-
-	method unidadDeLucha(unJugador) = 4.max(mundo.fuerzaOscura() / 2)
+class MascaraOscura {
+    var property minimoPoder=4
+    var property indiceDeOscuridad
+	method unidadDeLucha(unJugador) = self.minimoPoder().max((mundo.fuerzaOscura() / 2)*self.indiceDeOscuridad())
 
 }
 

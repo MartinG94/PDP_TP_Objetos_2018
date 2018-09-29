@@ -3,13 +3,20 @@ import rolando.*
 import artefactos.*
 
 describe "Tests sobre la habilidad de lucha de ronaldo" {
-
+     const espadaDelDestino
+     const rolando
+     const unaMascara
+     const otraMascara
 	fixture {
 		mundo.fuerzaOscura(5)
 		collarDivino.perlas(5)
+		rolando = new Jugador()
 		rolando.valorBaseHechiceria(3)
 		rolando.valorBaseLucha(1)
-		rolando.artefactos([ espadaDelDestino, collarDivino, mascaraOscura ])
+		espadaDelDestino = new Arma()
+		unaMascara = new MascaraOscura(indiceDeOscuridad=1)
+		rolando.artefactos([ espadaDelDestino, collarDivino, unaMascara ])
+		otraMascara = new MascaraOscura(indiceDeOscuridad=0)
 	}
 
 	test "Si ronaldo no tiene artefactos, su habilidad de lucha es 1" {
@@ -31,15 +38,28 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 		assert.equals(rolando.habilidadDeLucha(), 20)
 	}
 
-	test "Luego de un eclipse, la unidad de lucha de la mascara oscura es 5" {
+	test "Luego de un eclipse, la unidad de lucha de una mascara oscura es 5" {
 		mundo.ocurreUnEclipse()
-		assert.equals(mascaraOscura.unidadDeLucha(rolando), 5)
+		assert.equals(unaMascara.unidadDeLucha(rolando), 5)
 	}
 
 	test "Si se elimina la mascara oscura de los artefactos de ronaldo, su habilidad es 9" {
-		rolando.desequipate(mascaraOscura)
+		rolando.desequipate(unaMascara)
 		assert.equals(rolando.habilidadDeLucha(), 9)
 	}
 
-}
 
+
+test "Se agrega una mascara oscura(indice de oscuridad = 0) a rolando, su unidad de lucha es 4" {
+		rolando.equipate(otraMascara)
+		assert.equals(otraMascara.unidadDeLucha(rolando), 4)
+		
+	   }
+test "Se agrega una mascara oscura(indice de oscuridad = 0,valor Minimo =2) a rolando, su unidad de lucha es 2" {
+		otraMascara.minimoPoder(2)
+		rolando.equipate(otraMascara)
+		assert.equals(otraMascara.unidadDeLucha(rolando), 2)
+			
+	}
+	   }	   
+	
