@@ -24,11 +24,15 @@ class MascaraOscura {
 
 }
 
-object armadura {
+class Armadura {
 
+	var property valorBase
 	var property refuerzo = sinRefuerzo
 
-	method unidadDeLucha(unJugador) = 2 + self.refuerzo().valorDeRefuerzo(unJugador)
+	method valorBase(nuevaBase) {
+	}
+
+	method unidadDeLucha(unJugador) = self.valorBase() + self.refuerzo().valorDeRefuerzo(unJugador)
 
 }
 
