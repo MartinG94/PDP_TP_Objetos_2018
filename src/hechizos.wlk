@@ -1,7 +1,8 @@
 class Logo {
 
-	var property nombre 
-    var property multiplo 
+	var property nombre
+	var property multiplo
+
 	method poder() = self.nombre().size() * self.multiplo()
 
 	method sosPoderoso() = self.poder() > 15

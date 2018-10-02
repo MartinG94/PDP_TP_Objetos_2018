@@ -16,9 +16,11 @@ object collarDivino {
 }
 
 class MascaraOscura {
-    var property minimoPoder=4
-    var property indiceDeOscuridad
-	method unidadDeLucha(unJugador) = self.minimoPoder().max((mundo.fuerzaOscura() / 2)*self.indiceDeOscuridad())
+
+	var property minimoPoder = 4
+	var property indiceDeOscuridad
+
+	method unidadDeLucha(unJugador) = self.minimoPoder().max((mundo.fuerzaOscura() / 2) * self.indiceDeOscuridad())
 
 }
 
