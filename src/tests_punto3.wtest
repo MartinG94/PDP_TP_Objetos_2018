@@ -10,7 +10,8 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	const espectroMalefico
 	const espadaDelDestino
 	const unaMascara
-    const unaArmadura
+	const unaArmadura
+
 	fixture {
 		rolando = new Jugador()
 		espectroMalefico = new Logo(nombre = "espectro Malefico", multiplo = 1)
@@ -21,7 +22,7 @@ describe "Tests sobre hechicería y lucha avanzada" {
 		rolando.hechizoPreferido(espectroMalefico)
 		espadaDelDestino = new Arma()
 		unaMascara = new MascaraOscura(indiceDeOscuridad = 1)
-		unaArmadura = new Armadura(valorBase=2)
+		unaArmadura = new Armadura(valorBase = 2)
 		rolando.artefactos([ espadaDelDestino, collarDivino, unaMascara, unaArmadura, espejoFantastico ])
 	}
 
@@ -44,7 +45,7 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	}
 
 	test "Si la armadura de ronaldo tiene una cota de malla de refuerzo, su habilidad de lucha sera 3" {
-		const unaCotaDeMalla =new CotaDeMalla(refuerzo =1)
+		const unaCotaDeMalla = new CotaDeMalla(refuerzo = 1)
 		unaArmadura.refuerzo(unaCotaDeMalla)
 		assert.equals(unaArmadura.unidadDeLucha(rolando), 3)
 	}
@@ -69,6 +70,15 @@ describe "Tests sobre hechicería y lucha avanzada" {
 		libroDeHechizos.hechizos([ espectroMalefico, hechizoBasico ])
 		rolando.hechizoPreferido(libroDeHechizos)
 		assert.equals(rolando.nivelDeHechiceria(), 56)
+	}
+
+	test "Si se agrega una armdura extra(valorBase=5) a Rolando con una cota de malla(valor=6) de refuerzo,su habilidad de lucha sera de 37" {
+		
+		const unaCotaDeMalla = new CotaDeMalla(refuerzo =6)
+		const otraArmadura = new Armadura(valorBase=5)
+		otraArmadura.refuerzo(unaCotaDeMalla)
+		rolando.equipate(otraArmadura)
+		assert.equals(rolando.habilidadDeLucha(), 37)
 	}
 
 }
