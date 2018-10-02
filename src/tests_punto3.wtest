@@ -44,7 +44,8 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	}
 
 	test "Si la armadura de ronaldo tiene una cota de malla de refuerzo, su habilidad de lucha sera 3" {
-		unaArmadura.refuerzo(cotaDeMalla)
+		const unaCotaDeMalla =new CotaDeMalla(refuerzo =1)
+		unaArmadura.refuerzo(unaCotaDeMalla)
 		assert.equals(unaArmadura.unidadDeLucha(rolando), 3)
 	}
 

@@ -1,6 +1,6 @@
-object cotaDeMalla {
-
-	method valorDeRefuerzo(unJugador) = 1
+class CotaDeMalla {
+   var property refuerzo
+	method valorDeRefuerzo(unJugador) = self.refuerzo()
 
 }
 
