@@ -1,6 +1,7 @@
 import mundo.*
 import artefactos.*
 import hechizos.*
+import refuerzos.*
 
 class Jugador {
 
@@ -8,7 +9,7 @@ class Jugador {
 	var property valorBaseLucha
 	var property hechizoPreferido
 	const property artefactos = []
-	var property monedasDeOro
+	var property monedasDeOro = 100
 
 	method artefactos(nuevosArtefactos) {
 		self.artefactos().addAll(nuevosArtefactos)
@@ -39,7 +40,7 @@ class Jugador {
 	method sosMejorEnLaLucha() = self.habilidadDeLucha() > self.nivelDeHechiceria()
 
 	method estasCargado() = self.artefactos().size() >= 5
-	
+
 	method objetivoCumplido() = self.monedasDeOro(self.monedasDeOro() + 10)
 
 	method seLoPuedeCostear(unArtefacto) = self.monedasDeOro() - unArtefacto.precio() >= 0
@@ -49,6 +50,9 @@ class Jugador {
 			self.monedasDeOro(self.monedasDeOro() - unArtefacto.precio())
 			self.equipate(unArtefacto)
 		}
+	}
+
+	method canjearHechizo(unHechizo) {
 	}
 
 }

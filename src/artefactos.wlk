@@ -38,7 +38,7 @@ class Armadura {
 
 	method unidadDeLucha(unJugador) = self.valorBase() + self.refuerzo().valorDeRefuerzo(unJugador)
 	
-	method precio() = 123 // momentaneo
+	method precio(unRefuerzo) = unRefuerzo.variacionDeCosto(self) //momentaneo
 
 }
 

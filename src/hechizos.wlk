@@ -1,3 +1,5 @@
+import rolando.*
+
 class Logo {
 
 	var property nombre
@@ -10,6 +12,9 @@ class Logo {
 	method valorDeRefuerzo(unJugador) = self.poder()
 
 	method precio() = self.poder()
+
+	method costoDeCanje(unJugador) = 0.max(self.precio() - (unJugador.hechizoPreferido().precio() / 2))
+
 }
 
 object hechizoBasico {
@@ -19,8 +24,11 @@ object hechizoBasico {
 	method sosPoderoso() = false
 
 	method valorDeRefuerzo(unJugador) = self.poder()
-	
-	method precio () = 10
+
+	method precio() = 10
+
+	method costoDeCanje(unJugador) = 0.max(self.precio() - (unJugador.hechizoPreferido().precio() / 2))
+
 }
 
 object libroDeHechizos {
@@ -48,8 +56,8 @@ object libroDeHechizos {
 	method poder() = self.cualesSonPoderosos().sum({ hechizo => hechizo.poder() })
 
 	method sosPoderoso() = self.poder() > 15
-	
-	method precio() = self.hechizos().size()*10 + self.poder()
+
+	method precio() = self.hechizos().size() * 10 + self.poder()
 
 }
 
