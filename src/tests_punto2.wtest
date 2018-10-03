@@ -11,7 +11,6 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 		mundo.fuerzaOscura(5)
 		collarDivino.perlas(5)
 		rolando = new Jugador()
-		rolando.valorBaseHechiceria(3)
 		rolando.valorBaseLucha(1)
 		espadaDelDestino = new Arma()
 		unaMascara = new MascaraOscura(indiceDeOscuridad=1)

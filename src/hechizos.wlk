@@ -9,6 +9,7 @@ class Logo {
 
 	method valorDeRefuerzo(unJugador) = self.poder()
 
+	method precio() = self.poder()
 }
 
 object hechizoBasico {
@@ -18,7 +19,8 @@ object hechizoBasico {
 	method sosPoderoso() = false
 
 	method valorDeRefuerzo(unJugador) = self.poder()
-
+	
+	method precio () = 10
 }
 
 object libroDeHechizos {
@@ -46,6 +48,8 @@ object libroDeHechizos {
 	method poder() = self.cualesSonPoderosos().sum({ hechizo => hechizo.poder() })
 
 	method sosPoderoso() = self.poder() > 15
+	
+	method precio() = self.hechizos().size()*10 + self.poder()
 
 }
 
