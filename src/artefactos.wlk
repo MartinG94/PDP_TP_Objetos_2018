@@ -1,10 +1,11 @@
 import mundo.*
 import refuerzos.*
+import rolando.*
 
 class Arma {
 
 	method unidadDeLucha(unJugador) = 3
-	
+
 	method precio() = 15
 
 }
@@ -14,8 +15,8 @@ object collarDivino {
 	var property perlas
 
 	method unidadDeLucha(unJugador) = self.perlas()
-	
-	method precio() = self.perlas()*2
+
+	method precio() = self.perlas() * 2
 
 }
 
@@ -37,8 +38,8 @@ class Armadura {
 	}
 
 	method unidadDeLucha(unJugador) = self.valorBase() + self.refuerzo().valorDeRefuerzo(unJugador)
-	
-	method precio(unRefuerzo) = unRefuerzo.variacionDeCosto(self) //momentaneo
+
+	method precio() = self.refuerzo().variacionDeCosto(self) // momentaneo
 
 }
 
@@ -53,7 +54,7 @@ object espejoFantastico {
 			return 0
 		}
 	}
-	
+
 	method precio() = 90
 
 }

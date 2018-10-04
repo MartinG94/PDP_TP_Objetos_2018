@@ -1,15 +1,17 @@
 class CotaDeMalla {
-   var property refuerzo
+
+	var property refuerzo
+
 	method valorDeRefuerzo(unJugador) = self.refuerzo()
-	
-	method variacionDeCosto(unaArmadura)= self.refuerzo()/2
-	
+
+	method variacionDeCosto(unaArmadura) = self.refuerzo() / 2
+
 }
 
 object bendicion {
 
 	method valorDeRefuerzo(unJugador) = unJugador.nivelDeHechiceria()
-	
+
 	method variacionDeCosto(unaArmadura) = unaArmadura.valorBase()
 
 }
@@ -17,8 +19,8 @@ object bendicion {
 object sinRefuerzo {
 
 	method valorDeRefuerzo(unJugador) = 0
-	
-	method variacionDeCosto(unaArmadura)= 2
+
+	method variacionDeCosto(unaArmadura) = 2
 
 }
 
