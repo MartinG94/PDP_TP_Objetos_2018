@@ -45,6 +45,12 @@ class Jugador {
 
 	method seLoPuedeCostear(unArtefacto) = self.monedasDeOro() - unArtefacto.precio() >= 0
 
+	method loPuedeCanjear(unHechizo) = self.monedasDeOro() + (self.hechizoPreferido().precio() / 2) - unHechizo.precio() >= 0
+
+	method oroTotalConHechizoIncluido() = self.monedasDeOro() + (self.hechizoPreferido().precio() / 2)
+
+	method topeDeOroPorCanje() = self.monedasDeOro()
+
 	method comprarUnArtefacto(unArtefacto) {
 		if (self.seLoPuedeCostear(unArtefacto)) {
 			self.monedasDeOro(self.monedasDeOro() - unArtefacto.precio())
@@ -53,6 +59,10 @@ class Jugador {
 	}
 
 	method canjearHechizo(unHechizo) {
+		if (self.loPuedeCanjear(unHechizo)) {
+			self.monedasDeOro(self.topeDeOroPorCanje().min(self.oroTotalConHechizoIncluido() - unHechizo.precio()))
+			self.hechizoPreferido(unHechizo)
+		}
 	}
 
 }
