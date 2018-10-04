@@ -15,6 +15,8 @@ class Logo {
 
 	method costoDeCanje(unJugador) = 0.max(self.precio() - (unJugador.hechizoPreferido().precio() / 2))
 
+	method variacionDeCosto(unaArmadura) = self.precio() + unaArmadura.valorBase()
+
 }
 
 object hechizoBasico {
@@ -28,6 +30,8 @@ object hechizoBasico {
 	method precio() = 10
 
 	method costoDeCanje(unJugador) = 0.max(self.precio() - (unJugador.hechizoPreferido().precio() / 2))
+
+	method variacionDeCosto(unaArmadura) = self.precio() + unaArmadura.valorBase()
 
 }
 
