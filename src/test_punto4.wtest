@@ -55,10 +55,8 @@ describe "Test sobre comercio" {
 		const malla = new CotaDeMalla(refuerzo = 5)
 		const armaduraConCotaDeMalla = new Armadura(valorBase = 2, refuerzo = malla)
 		collarDivino.perlas(5)
-		xenia.comprarUnArtefacto(espada)
-		xenia.comprarUnArtefacto(collarDivino)
-		xenia.comprarUnArtefacto(armadura)
-		xenia.comprarUnArtefacto(armaduraConCotaDeMalla)
+		
+		xenia.comprarArtefactos([espada,collarDivino,armadura,armaduraConCotaDeMalla])
 		assert.equals(xenia.monedasDeOro(), 70.5)
 	}
 
@@ -68,10 +66,8 @@ describe "Test sobre comercio" {
 		const malla = new CotaDeMalla(refuerzo = 5)
 		const armaduraConCotaDeMalla = new Armadura(valorBase = 2, refuerzo = malla)
 		collarDivino.perlas(5)
-		xenia.comprarUnArtefacto(espada)
-		xenia.comprarUnArtefacto(collarDivino)
-		xenia.comprarUnArtefacto(armadura)
-		xenia.comprarUnArtefacto(armaduraConCotaDeMalla)
+	
+		xenia.comprarArtefactos([espada,collarDivino,armadura,armaduraConCotaDeMalla])
 		assert.equals(xenia.artefactos().size(), 4)
 	}
 	

@@ -57,7 +57,15 @@ class Jugador {
 			self.equipate(unArtefacto)
 		}
 	}
-
+	method comprarArtefactos(unosArtefactos) {
+		var precioTotal = unosArtefactos.sum({ artefacto => artefacto.precio() }) 
+	
+		if ( precioTotal <=self.monedasDeOro()
+		) {
+		    self.monedasDeOro(self.monedasDeOro() - precioTotal)
+		    self.artefactos(unosArtefactos) 
+	}
+}
 	method canjearHechizo(unHechizo) {
 		if (self.loPuedeCanjear(unHechizo)) {
 			self.monedasDeOro(self.topeDeOroPorCanje().min(self.oroTotalConHechizoIncluido() - unHechizo.precio()))
