@@ -52,10 +52,11 @@ class Jugador {
 	method topeDeOroPorCanje() = self.monedasDeOro()
 
 	method comprarUnArtefacto(unArtefacto) {
-		if (self.seLoPuedeCostear(unArtefacto)) {
-			self.monedasDeOro(self.monedasDeOro() - unArtefacto.precio())
-			self.equipate(unArtefacto)
-		}
+	//	 if (self.seLoPuedeCostear(unArtefacto)) {
+	//		self.monedasDeOro(self.monedasDeOro() - unArtefacto.precio())
+	//		self.equipate(unArtefacto)
+	//	}
+	      self.comprarArtefactos([unArtefacto])    
 	}
 	method comprarArtefactos(unosArtefactos) {
 		var precioTotal = unosArtefactos.sum({ artefacto => artefacto.precio() }) 
