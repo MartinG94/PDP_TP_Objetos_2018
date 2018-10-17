@@ -11,8 +11,7 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	const espadaDelDestino
 	const unaMascara
 	const unaArmadura
-
-	fixture {
+    fixture {
 		rolando = new Jugador()
 		espectroMalefico = new Logo(nombre = "espectro Malefico", multiplo = 1)
 		mundo.fuerzaOscura(5)
@@ -79,6 +78,9 @@ describe "Tests sobre hechicería y lucha avanzada" {
 		rolando.equipate(otraArmadura)
 		assert.equals(rolando.habilidadDeLucha(), 37)
 	}
+	
+	
+
 
 }
 

@@ -52,10 +52,8 @@ class Jugador {
 	method topeDeOroPorCanje() = self.monedasDeOro()
 
 	method comprarUnArtefacto(unArtefacto) {
-	//	 if (self.seLoPuedeCostear(unArtefacto)) {
-	//		self.monedasDeOro(self.monedasDeOro() - unArtefacto.precio())
-	//		self.equipate(unArtefacto)
-	//	}
+	
+
 	      self.comprarArtefactos([unArtefacto])    
 	}
 	method comprarArtefactos(unosArtefactos) {
@@ -74,7 +72,7 @@ class Jugador {
 		}
 	}
 	method tenesOtrosArtefactos() =self.artefactos().size()>1
-		//if (unJugador.ignoraA(self).isEmpty().negate()) {
+		
 		
 	
 
