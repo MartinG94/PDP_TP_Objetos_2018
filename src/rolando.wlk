@@ -73,6 +73,10 @@ class Jugador {
 			self.hechizoPreferido(unHechizo)
 		}
 	}
+	method tenesOtrosArtefactos() =self.artefactos().size()>1
+		//if (unJugador.ignoraA(self).isEmpty().negate()) {
+		
+	
 
 }
 

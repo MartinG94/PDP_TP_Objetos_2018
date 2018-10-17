@@ -48,7 +48,8 @@ object espejoFantastico {
 	method copiaAlMejorArtefactoDe(unJugador) = unJugador.cualEsTuMejorArtefacto().unidadDeLucha(unJugador)
 
 	method unidadDeLucha(unJugador) {
-		if (unJugador.ignoraA(self).isEmpty().negate()) {
+		//if (unJugador.ignoraA(self).isEmpty().negate()) {
+		  if(unJugador.tenesOtrosArtefactos()) {
 			return self.copiaAlMejorArtefactoDe(unJugador)
 		} else {
 			return 0
