@@ -55,8 +55,7 @@ describe "Test sobre comercio" {
 		const malla = new CotaDeMalla(refuerzo = 5)
 		const armaduraConCotaDeMalla = new Armadura(valorBase = 2, refuerzo = malla)
 		collarDivino.perlas(5)
-		
-		xenia.comprarArtefactos([espada,collarDivino,armadura,armaduraConCotaDeMalla])
+		xenia.comprarArtefactos([ espada, collarDivino, armadura, armaduraConCotaDeMalla ])
 		assert.equals(xenia.monedasDeOro(), 70.5)
 	}
 
@@ -66,28 +65,27 @@ describe "Test sobre comercio" {
 		const malla = new CotaDeMalla(refuerzo = 5)
 		const armaduraConCotaDeMalla = new Armadura(valorBase = 2, refuerzo = malla)
 		collarDivino.perlas(5)
-	
-		xenia.comprarArtefactos([espada,collarDivino,armadura,armaduraConCotaDeMalla])
+		xenia.comprarArtefactos([ espada, collarDivino, armadura, armaduraConCotaDeMalla ])
 		assert.equals(xenia.artefactos().size(), 4)
 	}
-	
-	test "Thor compra una armadura con bendición como refuerzo, y una armadura reforzada con el hechizo alacachula, le quedan 74 monedas."{
-		const armaduraBendita = new Armadura(valorBase=2,refuerzo=bendicion)
-		const armaduraHechizada = new Armadura (valorBase=2,refuerzo=hechizoLogo)
+
+	test "Thor compra una armadura con bendición como refuerzo, y una armadura reforzada con el hechizo alacachula, le quedan 74 monedas." {
+		const armaduraBendita = new Armadura(valorBase = 2, refuerzo = bendicion)
+		const armaduraHechizada = new Armadura(valorBase = 2, refuerzo = hechizoLogo)
 		thor.comprarUnArtefacto(armaduraBendita)
 		thor.comprarUnArtefacto(armaduraHechizada)
-		assert.equals(thor.monedasDeOro(),74)
+		assert.equals(thor.monedasDeOro(), 74)
 	}
-	
+
 	test "Loki quiere comprar el espejo, no puede y no varian sus monedas" {
 		loki.comprarUnArtefacto(espejoFantastico)
-		assert.equals(loki.monedasDeOro(),5)
+		assert.equals(loki.monedasDeOro(), 5)
 	}
-	
-	test "Xenia canjea un libro de hechizos que contiene el hechizoLogo y el hechizo básico, Le quedan 69"{
-		libroDeHechizos.hechizos([hechizoLogo,hechizoBasico])
+
+	test "Xenia canjea un libro de hechizos que contiene el hechizoLogo y el hechizo básico, Le quedan 69" {
+		libroDeHechizos.hechizos([ hechizoLogo, hechizoBasico ])
 		xenia.canjearHechizo(libroDeHechizos)
-		assert.equals(xenia.monedasDeOro(),69)
+		assert.equals(xenia.monedasDeOro(), 69)
 	}
 
 }

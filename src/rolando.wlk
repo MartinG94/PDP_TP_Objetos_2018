@@ -43,38 +43,34 @@ class Jugador {
 
 	method objetivoCumplido() = self.monedasDeOro(self.monedasDeOro() + 10)
 
-	method seLoPuedeCostear(unArtefacto) = self.monedasDeOro() - unArtefacto.precio() >= 0
+	method seLoPuedeCostear(unArtefacto) = self.monedasDeOro() >= unArtefacto.precio()
 
-	method loPuedeCanjear(unHechizo) = self.monedasDeOro() + (self.hechizoPreferido().precio() / 2) - unHechizo.precio() >= 0
+	method loPuedeCanjear(unHechizo) = self.monedasDeOro() + (self.hechizoPreferido().precio() / 2) >= unHechizo.precio()
 
 	method oroTotalConHechizoIncluido() = self.monedasDeOro() + (self.hechizoPreferido().precio() / 2)
 
 	method topeDeOroPorCanje() = self.monedasDeOro()
 
 	method comprarUnArtefacto(unArtefacto) {
-	
+		self.comprarArtefactos([ unArtefacto ])
+	}
 
-	      self.comprarArtefactos([unArtefacto])    
-	}
 	method comprarArtefactos(unosArtefactos) {
-		var precioTotal = unosArtefactos.sum({ artefacto => artefacto.precio() }) 
-	
-		if ( precioTotal <=self.monedasDeOro()
-		) {
-		    self.monedasDeOro(self.monedasDeOro() - precioTotal)
-		    self.artefactos(unosArtefactos) 
+		var precioTotal = unosArtefactos.sum({ artefacto => artefacto.precio() })
+		if (precioTotal <= self.monedasDeOro()) {
+			self.monedasDeOro(self.monedasDeOro() - precioTotal)
+			self.artefactos(unosArtefactos)
+		}
 	}
-}
+
 	method canjearHechizo(unHechizo) {
 		if (self.loPuedeCanjear(unHechizo)) {
 			self.monedasDeOro(self.topeDeOroPorCanje().min(self.oroTotalConHechizoIncluido() - unHechizo.precio()))
 			self.hechizoPreferido(unHechizo)
 		}
 	}
-	method tenesOtrosArtefactos() =self.artefactos().size()>1
-		
-		
-	
+
+	method tenesOtrosArtefactos() = self.artefactos().size() > 1
 
 }
 

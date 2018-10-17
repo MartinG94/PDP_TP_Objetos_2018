@@ -48,11 +48,10 @@ object espejoFantastico {
 	method copiaAlMejorArtefactoDe(unJugador) = unJugador.cualEsTuMejorArtefacto().unidadDeLucha(unJugador)
 
 	method unidadDeLucha(unJugador) {
-		
-		  if(unJugador.tenesOtrosArtefactos()) {
+		if (unJugador.tenesOtrosArtefactos()) {
 			return self.copiaAlMejorArtefactoDe(unJugador)
 		}
-		return 0 
+		return 0
 	}
 
 	method precio() = 90

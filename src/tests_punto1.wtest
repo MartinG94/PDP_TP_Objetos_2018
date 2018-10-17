@@ -3,13 +3,14 @@ import rolando.*
 import hechizos.*
 
 describe "Tests sobre rolando y los hechizos" {
-    const rolando
-    const espectroMalefico
+
+	const rolando
+	const espectroMalefico
+
 	fixture {
-	    
-	    rolando = new Jugador() 
+		rolando = new Jugador()
 		mundo.fuerzaOscura(5)
-		espectroMalefico = new Logo(nombre="espectro Malefico" ,multiplo=1)
+		espectroMalefico = new Logo(nombre = "espectro Malefico", multiplo = 1)
 		rolando.hechizoPreferido(espectroMalefico)
 	}
 
