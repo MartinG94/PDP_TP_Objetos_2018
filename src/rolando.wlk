@@ -68,7 +68,7 @@ class Jugador {
 		}
 	}
 
-	method tenesOtrosArtefactos() = self.artefactos().size() > 1
+	method tenesOtrosArtefactos() = self.ignoraA(espejoFantastico).size() > 0
 
 }
 
