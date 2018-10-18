@@ -18,33 +18,11 @@ class Logo inherits HechizoBasico{
 
 	override method poder() = self.nombre().size() * self.multiplo()
 
-	//method sosPoderoso() = self.poder() > 15 
-
-	//method valorDeRefuerzo(unJugador) = self.poder() //
-
-	//method precio() = self.poder() //
-
-	//method costoDeCanje(unJugador) = 0.max(self.precio() - (unJugador.hechizoPreferido().precio() / 2))//
-
-	//method variacionDeCosto(unaArmadura) = self.precio() + unaArmadura.valorBase() //
+	
 
 }
 
-//object hechizoBasico {
-//
-//	method poder() = 10
-//
-//	method sosPoderoso() = false //
-//
-//	method valorDeRefuerzo(unJugador) = self.poder() //
-//
-//	method precio() = 10 //
-//
-//	method costoDeCanje(unJugador) = 0.max(self.precio() - (unJugador.hechizoPreferido().precio() / 2)) //
-//
-//	method variacionDeCosto(unaArmadura) = self.precio() + unaArmadura.valorBase() //
-//
-//}
+
 
 object libroDeHechizos{
 
