@@ -45,13 +45,9 @@ class Jugador {
 
 	method seLoPuedeCostear(unArtefacto) = self.monedasDeOro() >= unArtefacto.precio()
 
-	
-	method loPuedeCanjear(unHechizo) = self.monedasDeOro()  >= unHechizo.costoDeCanje(self)
-	
+	method loPuedeCanjear(unHechizo) = self.monedasDeOro() >= unHechizo.costoDeCanje(self)
 
 	method oroTotalConHechizoIncluido() = self.monedasDeOro() + (self.hechizoPreferido().precio() / 2)
-
-	
 
 	method comprarUnArtefacto(unArtefacto) {
 		self.comprarArtefactos([ unArtefacto ])

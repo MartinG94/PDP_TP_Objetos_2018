@@ -1,30 +1,31 @@
 import rolando.*
 
 class HechizoBasico {
+
 	method poder() = 10
+
 	method sosPoderoso() = self.poder() > 15 //
+
 	method precio() = self.poder() //
+
 	method variacionDeCosto(unaArmadura) = self.precio() + unaArmadura.valorBase() //
+
 	method valorDeRefuerzo(unJugador) = self.poder()
+
 	method costoDeCanje(unJugador) = 0.max(self.precio() - (unJugador.hechizoPreferido().precio() / 2)) //
 
-	
 }
 
-class Logo inherits HechizoBasico{
+class Logo inherits HechizoBasico {
 
 	var property nombre
 	var property multiplo
 
 	override method poder() = self.nombre().size() * self.multiplo()
 
-	
-
 }
 
-
-
-object libroDeHechizos{
+object libroDeHechizos {
 
 	const property hechizos = []
 
@@ -48,11 +49,14 @@ object libroDeHechizos{
 
 	method poder() = self.cualesSonPoderosos().sum({ hechizo => hechizo.poder() })
 
-	method sosPoderoso() = self.poder() > 15   //
+	method sosPoderoso() = self.poder() > 15 //
 
 	method precio() = self.hechizos().size() * 10 + self.poder()
-	
+
+	method valorDeRefuerzo(unJugador) = self.poder()   //
+
 	method variacionDeCosto(unaArmadura) = self.precio() + unaArmadura.valorBase() //
+
 	method costoDeCanje(unJugador) = 0.max(self.precio() - (unJugador.hechizoPreferido().precio() / 2)) //
 
 }
