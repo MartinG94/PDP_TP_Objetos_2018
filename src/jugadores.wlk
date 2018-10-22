@@ -10,7 +10,8 @@ class Jugador {
 	var property hechizoPreferido
 	const property artefactos = []
 	var property monedasDeOro = 100
-
+    
+  
 	method artefactos(nuevosArtefactos) {
 		self.artefactos().addAll(nuevosArtefactos)
 	}
@@ -54,13 +55,16 @@ class Jugador {
 	}
 
 	method comprarArtefactos(unosArtefactos) {
-		var precioTotal = unosArtefactos.sum({ artefacto => artefacto.precio() })
-		if (precioTotal <= self.monedasDeOro()) {
-			self.monedasDeOro(self.monedasDeOro() - precioTotal)
-			self.artefactos(unosArtefactos)
+		
+		if (self.precioTotal(unosArtefactos) > self.monedasDeOro()) {
+			throw new ExcepcionPorFaltaOro("Te faltan monedas de Oro :haz algun objetivo")
 		}
+			self.monedasDeOro(self.monedasDeOro() - self.precioTotal(unosArtefactos))
+			self.artefactos(unosArtefactos)
+		
 	}
-
+    method precioTotal(unosArtefactos) = unosArtefactos.sum({artefacto=>artefacto.precio()})
+    
 	method canjearHechizo(unHechizo) {
 		if (self.loPuedeCanjear(unHechizo)) {
 			self.monedasDeOro(self.monedasDeOro().min(self.oroTotalConHechizoIncluido() - unHechizo.precio()))
@@ -71,4 +75,4 @@ class Jugador {
 	method tenesOtrosArtefactos() = self.ignoraA(espejoFantastico).size() > 0
 
 }
-
+class ExcepcionPorFaltaOro inherits Exception{}
