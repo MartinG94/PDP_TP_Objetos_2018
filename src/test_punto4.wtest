@@ -2,7 +2,7 @@ import artefactos.*
 import hechizos.*
 import mundo.*
 import refuerzos.*
-import rolando.*
+import jugadores.*
 
 describe "Test sobre comercio" {
 

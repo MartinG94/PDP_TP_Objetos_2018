@@ -1,5 +1,5 @@
 import mundo.*
-import rolando.*
+import jugadores.*
 import hechizos.*
 
 describe "Tests sobre rolando y los hechizos" {

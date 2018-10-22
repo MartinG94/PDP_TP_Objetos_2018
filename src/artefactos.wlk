@@ -1,6 +1,6 @@
 import mundo.*
 import refuerzos.*
-import rolando.*
+import jugadores.*
 
 class Arma {
 

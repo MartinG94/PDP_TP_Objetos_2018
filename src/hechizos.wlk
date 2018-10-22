@@ -1,4 +1,4 @@
-import rolando.*
+import jugadores.*
 
 class HechizoBasico {
 

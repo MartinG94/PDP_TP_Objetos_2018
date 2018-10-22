@@ -1,5 +1,5 @@
 import mundo.*
-import rolando.*
+import jugadores.*
 import artefactos.*
 
 describe "Tests sobre la habilidad de lucha de ronaldo" {
