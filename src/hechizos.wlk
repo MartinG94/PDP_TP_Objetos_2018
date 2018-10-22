@@ -25,6 +25,15 @@ class Logo inherits HechizoBasico {
 
 }
 
+class HechizoComercial inherits Logo {
+
+	var property porcentaje = 0.2
+
+	// inicialamos el hechizoComercial con un nombre al crearlo y un multiplo
+	override method poder() = super() * porcentaje
+
+}
+
 object libroDeHechizos {
 
 	const property hechizos = []
@@ -53,7 +62,7 @@ object libroDeHechizos {
 
 	method precio() = self.hechizos().size() * 10 + self.poder()
 
-	method valorDeRefuerzo(unJugador) = self.poder()   //
+	method valorDeRefuerzo(unJugador) = self.poder() //
 
 	method variacionDeCosto(unaArmadura) = self.precio() + unaArmadura.valorBase() //
 
