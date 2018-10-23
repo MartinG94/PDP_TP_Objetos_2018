@@ -65,7 +65,7 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	}
 
 	test "Si el hechizo preferido de ronaldo es un libro de hechizos con el espectro malefico y el hechizo basico, su nivelDeHechicería sera de 56" {
-		libroDeHechizos.hechizos([ espectroMalefico, hechizoBasico ])
+		const libroDeHechizos = new LibroDeHechizo(hechizos=[espectroMalefico,hechizoBasico])
 		rolando.hechizoPreferido(libroDeHechizos)
 		assert.equals(rolando.nivelDeHechiceria(), 56)
 	}

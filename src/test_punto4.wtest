@@ -93,7 +93,7 @@ describe "Test sobre comercio" {
 	}
 
 	test "Xenia canjea un libro de hechizos que contiene el hechizoLogo y el hechizo básico, Le quedan 69" {
-		libroDeHechizos.hechizos([ hechizoLogo, hechizoBasico ])
+		const libroDeHechizos = new LibroDeHechizo(hechizos=[hechizoLogo,hechizoBasico])
 		xenia.canjearHechizo(libroDeHechizos)
 		assert.equals(xenia.monedasDeOro(), 69)
 	}
