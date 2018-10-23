@@ -10,13 +10,11 @@ describe "Test sobre comercio" {
 	const thor
 	const loki
 	const hechizoLogo
-	const hechizoBasico
 
 	fixture {
 		xenia = new Jugador()
 		thor = new Jugador()
 		loki = new Jugador()
-		hechizoBasico = new HechizoBasico()
 		hechizoLogo = new Logo()
 		xenia.hechizoPreferido(hechizoLogo)
 		thor.hechizoPreferido(hechizoBasico)

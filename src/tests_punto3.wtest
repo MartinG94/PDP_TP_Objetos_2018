@@ -11,10 +11,8 @@ describe "Tests sobre hechicería y lucha avanzada" {
 	const espadaDelDestino
 	const unaMascara
 	const unaArmadura
-    const hechizoBasico
 	fixture {
 		rolando = new Jugador()
-		hechizoBasico = new HechizoBasico()
 		espectroMalefico = new Logo(nombre = "espectro Malefico", multiplo = 1)
 		mundo.fuerzaOscura(5)
 		collarDivino.perlas(5)

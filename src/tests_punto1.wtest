@@ -6,12 +6,10 @@ describe "Tests sobre rolando y los hechizos" {
 
 	const rolando
 	const espectroMalefico
-    const hechizoBasico
 	fixture {
 		rolando = new Jugador()
 		mundo.fuerzaOscura(5)
 		espectroMalefico = new Logo(nombre = "espectro Malefico", multiplo = 1)
-		hechizoBasico = new HechizoBasico()
 		rolando.hechizoPreferido(espectroMalefico)
 	}
 

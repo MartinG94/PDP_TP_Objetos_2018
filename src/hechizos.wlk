@@ -1,6 +1,6 @@
 import jugadores.*
 
-class HechizoBasico {
+class Hechizo {
 
 	method poder() = 10
 
@@ -16,7 +16,9 @@ class HechizoBasico {
 
 }
 
-class Logo inherits HechizoBasico {
+object hechizoBasico inherits Hechizo {}
+
+class Logo inherits Hechizo {
 
 	var property nombre
 	var property multiplo
@@ -27,7 +29,7 @@ class Logo inherits HechizoBasico {
 
 class HechizoComercial inherits Logo {
 
-	var property porcentaje = 0.2
+	var property porcentaje
 
 	// inicialamos el hechizoComercial con un nombre al crearlo y un multiplo
 	override method poder() = super() * porcentaje
