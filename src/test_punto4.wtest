@@ -80,7 +80,7 @@ describe "Test sobre comercio" {
 	test "Loki quiere comprar el espejo, no puede y no varian sus monedas" {
 		//loki.comprarUnArtefacto(espejoFantastico)
 		
-     const mensajeDeError = "Te faltan monedas de Oro :haz algun objetivo"
+     const mensajeDeError = "Te faltan monedas de Oro : haz algun objetivo"
 	 const excepcionEsperada = new ExcepcionPorFaltaOro	(mensajeDeError)
      const bloqueQueDebeExplotar = {
      loki.comprarUnArtefacto(espejoFantastico)

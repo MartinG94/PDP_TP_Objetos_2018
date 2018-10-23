@@ -10,6 +10,10 @@ class Jugador {
 	var property hechizoPreferido
 	const property artefactos = []
 	var property monedasDeOro = 100
+	var property capacidadDeCarga =200
+
+	method capacidadDeCarga(unNumero) {
+	}
 
 	method artefactos(nuevosArtefactos) {
 		self.artefactos().addAll(nuevosArtefactos)
@@ -53,9 +57,14 @@ class Jugador {
 		self.comprarArtefactos([ unArtefacto ])
 	}
 
+	method noTeSobraEspacio(unosArtefactos) = self.artefactos().sum({ artefacto => artefacto.pesoTotal(self) }) + unosArtefactos.sum({ artefacto => artefacto.pesoTotal(self) }) > self.capacidadDeCarga()
+
 	method comprarArtefactos(unosArtefactos) {
 		if (self.precioTotal(unosArtefactos) > self.monedasDeOro()) {
-			throw new ExcepcionPorFaltaOro("Te faltan monedas de Oro :haz algun objetivo")
+			throw new ExcepcionPorFaltaOro("Te faltan monedas de Oro : haz algun objetivo")
+		}
+		if (self.noTeSobraEspacio(unosArtefactos)) {
+			throw new ExcepcionPorSobrepeso("este articulo es mucho para ti! aliviana tu carga!")
 		}
 		self.monedasDeOro(self.monedasDeOro() - self.precioTotal(unosArtefactos))
 		self.artefactos(unosArtefactos)
@@ -75,6 +84,10 @@ class Jugador {
 }
 
 class ExcepcionPorFaltaOro inherits Exception {
+
+}
+
+class ExcepcionPorSobrepeso inherits Exception {
 
 }
 
