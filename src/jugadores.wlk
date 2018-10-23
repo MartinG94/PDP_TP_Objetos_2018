@@ -10,7 +10,7 @@ class Jugador {
 	var property hechizoPreferido
 	const property artefactos = []
 	var property monedasDeOro = 100
-	var property capacidadDeCarga =200
+	var property capacidadDeCarga
 
 	method capacidadDeCarga(unNumero) {
 	}

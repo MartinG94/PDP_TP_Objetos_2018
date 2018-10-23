@@ -3,10 +3,10 @@ import refuerzos.*
 import jugadores.*
 
 class Artefacto {
-	var property diasDeCompra =0
-	var property peso=1
+	var property diasDeCompra
+	var property peso
 	
-	method peso(unNumero){}
+//	method peso(unNumero){}
 	
 	method pesoTotal(unJugador) = self.peso() - self.factorDeCorreccion()
 	
