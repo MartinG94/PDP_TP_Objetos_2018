@@ -1,23 +1,65 @@
 import mundo.*
 import jugadores.*
 import artefactos.*
-
+import refuerzos.*
+import hechizos.*
 describe "Tests sobre la habilidad de lucha de ronaldo" {
 
 	const espadaDelDestino
 	const rolando
 	const unaMascara
 	const otraMascara
-
+	
+	const espadaVieja
+	const espadaNueva
+	const espadaComun
+//	const mascaraOscura es unaMascara
+//	const mascaraClara // =? es otraMascara
+	const armaduraconCotaDeMalla
+	const cotaDeMalla
+	const armaduraConHechizoPar
+	const armaduraConHechizoImpar
+	const armadurasinRefuerzo
+	const merlin
+	const ursula
+	const hechizoComercial
+	const hechizoLogo
+	
 	fixture {
+		hechizoComercial = new HechizoComercial(nombre="el hechizo comercial",multiplo=2,porcentaje=0.2)
+		hechizoLogo = new Logo(nombre="espectro maléfico",multiplo=3)
 		mundo.fuerzaOscura(5)
 		collarDivino.perlas(5)
+		collarDivino.peso(0)
+		collarDivino.diasDeCompra(0)
 		rolando = new Jugador()
 		rolando.valorBaseLucha(1)
 		espadaDelDestino = new Arma()
-		unaMascara = new MascaraOscura(indiceDeOscuridad = 1)
+		unaMascara = new MascaraOscura(diasDeCompra=0,peso=3,indiceDeOscuridad = 1)
 		rolando.artefactos([ espadaDelDestino, collarDivino, unaMascara ])
-		otraMascara = new MascaraOscura(indiceDeOscuridad = 0)
+		otraMascara = new MascaraOscura(diasDeCompra=0,peso=2,indiceDeOscuridad = 0)
+		espadaVieja = new Arma(diasDeCompra=3000,peso=7)
+		espadaNueva = new Arma(diasDeCompra=0,peso=4)
+		espadaComun = new Arma(diasDeCompra=50,peso=5)
+		cotaDeMalla = new CotaDeMalla()
+		armaduraconCotaDeMalla = new Armadura (valorBase=2,refuerzo=cotaDeMalla,diasDeCompra=0,peso=10)
+		armaduraConHechizoPar = new Armadura (valorBase=2,refuerzo=hechizoComercial,diasDeCompra=0,peso=12)
+		armaduraConHechizoImpar = new Armadura (valorBase=2,refuerzo=hechizoLogo,diasDeCompra=0,peso=12)
+		armadurasinRefuerzo = new Armadura (valorBase=2,refuerzo=sinRefuerzo,diasDeCompra=0,peso=12)
+		merlin = new Jugador(
+			valorBaseLucha=2,
+			hechizoPreferido=null,
+			capacidadDeCarga=10
+		)
+		ursula = new Jugador(
+			valorBaseLucha=2,
+			hechizoPreferido=null,
+			capacidadDeCarga=200,
+			artefactos = [unaMascara,armaduraconCotaDeMalla]
+		)
+		
+		
+		
 	}
 
 	test "Si ronaldo no tiene artefactos, su habilidad de lucha es 1" {
@@ -59,6 +101,25 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 		rolando.equipate(otraMascara)
 		assert.equals(otraMascara.unidadDeLucha(rolando), 2)
 	}
+	
+	test "El peso de la espada vieja es 6 kg" {
+		assert.equals(espadaVieja.pesoTotal(merlin),6)
+	}
+	test "El peso de la espada nueva es 4 kg" {
+		assert.equals(espadaNueva.pesoTotal(merlin),4)
+		
+		}
+	test "El peso de la espada comun es 4.95 kg" {
+		assert.equals(espadaComun.pesoTotal(merlin),4.95)	
+}
+  test "El peso del collar divino  es 2.5 kg" {
+		assert.equals(collarDivino.pesoTotal(merlin),2.5)	
+}
+
+ test "El peso de la mascara oscura  es 3 kg" {
+ 	    unaMascara.minimoPoder(0)
+		assert.equals(unaMascara.pesoTotal(merlin))	
+}
 
 }
 
