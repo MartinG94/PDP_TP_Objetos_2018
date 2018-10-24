@@ -13,20 +13,21 @@ class Hechizo {
 	method valorDeRefuerzo(unJugador) = self.poder()
 
 	method costoDeCanje(unJugador) = 0.max(self.precio() - (unJugador.hechizoPreferido().precio() / 2)) //
-	
+
 	method esPar() = self.poder().even()
-	
+
 	method pesoAgregado() {
-		if(self.esPar()){
+		if (self.esPar()) {
 			return 2
 		}
 		return 1
-		
 	}
 
 }
 
-object hechizoBasico inherits Hechizo {}
+object hechizoBasico inherits Hechizo {
+
+}
 
 class Logo inherits Hechizo {
 
@@ -34,7 +35,6 @@ class Logo inherits Hechizo {
 	var property multiplo
 
 	override method poder() = self.nombre().size() * self.multiplo()
-	
 
 }
 
@@ -42,13 +42,11 @@ class HechizoComercial inherits Logo {
 
 	var property porcentaje
 
-	// inicialamos el hechizoComercial con un nombre al crearlo y un multiplo
-	override method poder() = super() * porcentaje
-	
+	override method poder() = super() * self.porcentaje()
 
 }
 
-class LibroDeHechizo inherits Hechizo{
+class LibroDeHechizo inherits Hechizo {
 
 	const property hechizos = []
 
@@ -73,6 +71,6 @@ class LibroDeHechizo inherits Hechizo{
 	override method poder() = self.cualesSonPoderosos().sum({ hechizo => hechizo.poder() })
 
 	override method precio() = self.hechizos().size() * 10 + self.poder()
-	
+
 }
 
