@@ -59,13 +59,15 @@ class Jugador {
 
 	method noTeSobraEspacio(unosArtefactos) = self.artefactos().sum({ artefacto => artefacto.pesoTotal(self) }) + unosArtefactos.sum({ artefacto => artefacto.pesoTotal(self) }) > self.capacidadDeCarga()
 
+	method lanzarExcepcionSi(condicion, mensaje){
+		if(condicion){
+			throw new NoSePuedeComprarExcepcion(mensaje)
+		}
+	}
+
 	method comprarArtefactos(unosArtefactos) {
-		if (self.precioTotal(unosArtefactos) > self.monedasDeOro()) {
-			throw new ExcepcionPorFaltaOro("Te faltan monedas de Oro : haz algun objetivo")
-		}
-		if (self.noTeSobraEspacio(unosArtefactos)) {
-			throw new ExcepcionPorSobrepeso("este articulo es mucho para ti! aliviana tu carga!")
-		}
+		self.lanzarExcepcionSi(self.precioTotal(unosArtefactos) > self.monedasDeOro(), "Te faltan monedas de Oro : haz algun objetivo")
+		self.lanzarExcepcionSi(self.noTeSobraEspacio(unosArtefactos), "este articulo es mucho para ti! aliviana tu carga!")
 		self.monedasDeOro(self.monedasDeOro() - self.precioTotal(unosArtefactos))
 		self.artefactos(unosArtefactos)
 	}
@@ -83,11 +85,8 @@ class Jugador {
 
 }
 
-class ExcepcionPorFaltaOro inherits Exception {
+class NoSePuedeComprarExcepcion inherits Exception {
 
 }
 
-class ExcepcionPorSobrepeso inherits Exception {
-
-}
 
