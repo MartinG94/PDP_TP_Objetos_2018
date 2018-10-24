@@ -9,14 +9,11 @@ describe "Tests sobre rolando y los hechizos" {
 	const hechizoComercial
 	const hechizoLogo
 	const furibunda
+
 	fixture {
-		hechizoLogo = new Logo (nombre="espectro malefico",multiplo=3)
-		hechizoComercial = new HechizoComercial(nombre="el hechizo comercial",multiplo=2,porcentaje=0.2)
-		furibunda = new Jugador(
-			valorBaseLucha=2,
-			hechizoPreferido=hechizoComercial,
-			capacidadDeCarga=200)
-		
+		hechizoLogo = new Logo(nombre = "espectro malefico", multiplo = 3)
+		hechizoComercial = new HechizoComercial(nombre = "el hechizo comercial", multiplo = 2, porcentaje = 0.2)
+		furibunda = new Jugador(valorBaseLucha = 2, hechizoPreferido = hechizoComercial, capacidadDeCarga = 200)
 		rolando = new Jugador()
 		mundo.fuerzaOscura(5)
 		espectroMalefico = new Logo(nombre = "espectro Malefico", multiplo = 1)
@@ -54,19 +51,18 @@ describe "Tests sobre rolando y los hechizos" {
 	test "Hechizo basico no es poderoso" {
 		assert.notThat(hechizoBasico.sosPoderoso())
 	}
-	
 
-	test "el nivel de hechiceria de furibunda es 29"{
-		assert.equals(furibunda.nivelDeHechiceria(),29)
+	test "el nivel de hechiceria de furibunda es 29" {
+		assert.equals(furibunda.nivelDeHechiceria(), 29)
 	}
-	
-	test "hechizo comercial no es poderoso"{
+
+	test "hechizo comercial no es poderoso" {
 		assert.notThat(hechizoComercial.sosPoderoso())
 	}
-	
-	test "hechizo espectro malefico es poderoso"{
+
+	test "hechizo espectro malefico es poderoso" {
 		assert.that(hechizoLogo.sosPoderoso())
 	}
-	
+
 }
 
