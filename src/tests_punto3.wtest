@@ -3,14 +3,19 @@ import jugadores.*
 import hechizos.*
 import artefactos.*
 import refuerzos.*
+import npc.*
 
-describe "Tests sobre hechicería y lucha avanzada" {
+describe "Tests sobre hechicería, lucha avanzada y NPCs" {
 
 	const rolando
 	const espectroMalefico
 	const espadaDelDestino
 	const unaMascara
 	const unaArmadura
+	const navi
+	const ashleyGraham
+	const mascaraClara
+	
 	fixture {
 		rolando = new Jugador()
 		espectroMalefico = new Logo(nombre = "espectro Malefico", multiplo = 1)
@@ -22,6 +27,9 @@ describe "Tests sobre hechicería y lucha avanzada" {
 		unaMascara = new MascaraOscura(indiceDeOscuridad = 1)
 		unaArmadura = new Armadura(valorBase = 2)
 		rolando.artefactos([ espadaDelDestino, collarDivino, unaMascara, unaArmadura, espejoFantastico ])
+		navi = new Npc(nivel = facil, valorBaseLucha = 1)
+		mascaraClara = new MascaraOscura(diasDeCompra = 0, peso = 2, indiceDeOscuridad = 0)
+		ashleyGraham = new Npc(nivel = moderado, valorBaseLucha = 5, artefactos = [mascaraClara])
 	}
 
 	test "Rolando está cargado por tener 5 artefactos" {
@@ -76,6 +84,19 @@ describe "Tests sobre hechicería y lucha avanzada" {
 		otraArmadura.refuerzo(unaCotaDeMalla)
 		rolando.equipate(otraArmadura)
 		assert.equals(rolando.habilidadDeLucha(), 37)
+	}
+	
+	test "La habilidad de lucha del npc navi es de 1"{
+		assert.equals(navi.habilidadDeLucha(), 1)
+	}
+	
+	test "La habilidad de lucha del npc ashley graham es de 18"{
+		assert.equals(ashleyGraham.habilidadDeLucha(), 18)
+	}
+	
+	test "La dificultad de ashley graham ahora es dificil, su dificultad ahora es 36"{
+		ashleyGraham.nivel(dificil)
+		assert.equals(ashleyGraham.habilidadDeLucha(), 36)
 	}
 
 }
