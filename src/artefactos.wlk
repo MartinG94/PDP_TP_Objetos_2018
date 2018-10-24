@@ -7,7 +7,7 @@ class Artefacto {
 	var property diasDeCompra
 	var property peso
 
-	method pesoTotal(unJugador) = self.peso() - self.factorDeCorreccion()
+	method pesoTotal() = self.peso() - self.factorDeCorreccion()
 
 	method factorDeCorreccion() = 1.min(self.diasDeCompra() / 1000)
 
@@ -29,7 +29,7 @@ object collarDivino inherits Artefacto {
 
 	method precio() = self.perlas() * 2
 
-	override method pesoTotal(unJugador) = super(unJugador) + (0.5 * self.perlas())
+	override method pesoTotal() = super() + (0.5 * self.perlas())
 
 }
 
