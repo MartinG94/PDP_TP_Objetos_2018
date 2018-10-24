@@ -3,14 +3,14 @@ import refuerzos.*
 import jugadores.*
 
 class Artefacto {
+
 	var property diasDeCompra
 	var property peso
-	
-//	method peso(unNumero){}
-	
+
 	method pesoTotal(unJugador) = self.peso() - self.factorDeCorreccion()
-	
-	method factorDeCorreccion() = 1.min(self.diasDeCompra()/1000)
+
+	method factorDeCorreccion() = 1.min(self.diasDeCompra() / 1000)
+
 }
 
 class Arma inherits Artefacto {
@@ -28,8 +28,8 @@ object collarDivino inherits Artefacto {
 	method unidadDeLucha(unJugador) = self.perlas()
 
 	method precio() = self.perlas() * 2
-	
-	override method pesoTotal(unJugador) = super(unJugador) + 0.5*self.perlas()
+
+	override method pesoTotal(unJugador) = super(unJugador) + (0.5 * self.perlas())
 
 }
 
@@ -39,8 +39,8 @@ class MascaraOscura inherits Artefacto {
 	var property indiceDeOscuridad
 
 	method unidadDeLucha(unJugador) = self.minimoPoder().max((mundo.fuerzaOscura() / 2) * self.indiceDeOscuridad())
-	
-	override method pesoTotal(unJugador) = super(unJugador) + 0.max(self.unidadDeLucha(unJugador)-3)
+
+	override method pesoTotal(unJugador) = super(unJugador) + 0.max(self.unidadDeLucha(unJugador) - 3)
 
 }
 
@@ -55,7 +55,7 @@ class Armadura inherits Artefacto {
 	method unidadDeLucha(unJugador) = self.valorBase() + self.refuerzo().valorDeRefuerzo(unJugador)
 
 	method precio() = self.refuerzo().variacionDeCosto(self)
-	
+
 	override method pesoTotal(unJugador) = super(unJugador) + self.refuerzo().pesoAgregado()
 
 }
