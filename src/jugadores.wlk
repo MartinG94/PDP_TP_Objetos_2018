@@ -53,21 +53,22 @@ class Jugador {
 
 	method oroTotalConHechizoIncluido() = self.monedasDeOro() + (self.hechizoPreferido().precio() / 2)
 
-	method comprarUnArtefacto(unArtefacto) {
+	method comprarUnArtefacto(unArtefacto, unComerciante) {
+		unComerciante.vender(unArtefacto)
 		self.comprarArtefactos([ unArtefacto ])
 	}
 
 	method noTeSobraEspacio(unosArtefactos) = self.artefactos().sum({ artefacto => artefacto.pesoTotal() }) + unosArtefactos.sum({ artefacto => artefacto.pesoTotal() }) > self.capacidadDeCarga()
 
-	method lanzarExcepcionSi(condicion, mensaje){
+	method lanzarExceptionSi(condicion, mensaje){
 		if(condicion){
-			throw new NoSePuedeComprarExcepcion(mensaje)
+			throw new NoSePuedeComprarException(mensaje)
 		}
 	}
 
 	method comprarArtefactos(unosArtefactos) {
-		self.lanzarExcepcionSi(self.precioTotal(unosArtefactos) > self.monedasDeOro(), "Te faltan monedas de Oro : haz algun objetivo")
-		self.lanzarExcepcionSi(self.noTeSobraEspacio(unosArtefactos), "este articulo es mucho para ti! aliviana tu carga!")
+		self.lanzarExceptionSi(self.precioTotal(unosArtefactos) > self.monedasDeOro(), "Te faltan monedas de Oro : haz algun objetivo")
+		self.lanzarExceptionSi(self.noTeSobraEspacio(unosArtefactos), "este articulo es mucho para ti! aliviana tu carga!")
 		self.monedasDeOro(self.monedasDeOro() - self.precioTotal(unosArtefactos))
 		self.artefactos(unosArtefactos)
 	}
@@ -85,7 +86,7 @@ class Jugador {
 
 }
 
-class NoSePuedeComprarExcepcion inherits Exception {
+class NoSePuedeComprarException inherits Exception {
 
 }
 
