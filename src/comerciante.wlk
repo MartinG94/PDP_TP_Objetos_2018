@@ -22,11 +22,13 @@ class Comerciante {
 	}
 	
 	
-	method esIndependiente()= true
+	method esIndependiente()= self.situacionImpositiva().porcetajeDeComision() < 0.21
 	
 }
 
 class Independiente {
+	
+	
 	
 	var property porcentajeDeComision
 	
@@ -35,14 +37,18 @@ class Independiente {
 
 object registrado{
 	
-	method comision(unPrecio) = unPrecio + (unPrecio * 0.21)
+	const property porcentajeDeComision=0.21
+	
+	method comision(unPrecio) = unPrecio + (unPrecio * self.porcentajeDeComision())
 }
 
 object impuestoALasGanancias{
 	
+	const property porcentajeDeComision =0.35
+	
 	const property minimoNoImponible = 5
 	
-	method comision(unPrecio) = unPrecio + 0.max((unPrecio - self.minimoNoImponible()) * 0.35)
+	method comision(unPrecio) = unPrecio + 0.max((unPrecio - self.minimoNoImponible()) * self.porcentajeDeComision())
 }
 
 class NoSePuedeVenderException inherits Exception{
