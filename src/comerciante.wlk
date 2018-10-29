@@ -15,6 +15,15 @@ class Comerciante {
 		}
 	}
 	
+ 	method recategorizacion() {
+		if(self.esIndependiente()){
+			self.situacionImpositiva(new Independiente(porcentajeDeComision=self.situacionImpositiva().porcentajeDeComision()*2))
+		}
+	}
+	
+	
+	method esIndependiente()= true
+	
 }
 
 class Independiente {
