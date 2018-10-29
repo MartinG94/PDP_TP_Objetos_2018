@@ -6,18 +6,23 @@ class Artefacto {
 
 	var property diasDeCompra
 	var property peso
+	var property valorAgregado = 0
 
 	method pesoTotal() = self.peso() - self.factorDeCorreccion()
 
 	method factorDeCorreccion() = 1.min(self.diasDeCompra() / 1000)
+	
+	method precio() = self.valorAgregado()
 
 }
 
 class Arma inherits Artefacto {
+	
+	var property precioParticular = 15
 
 	method unidadDeLucha(unJugador) = 3
 
-	method precio() = 15
+	override method precio() = super() + 15
 
 }
 
@@ -27,7 +32,7 @@ object collarDivino inherits Artefacto {
 
 	method unidadDeLucha(unJugador) = self.perlas()
 
-	method precio() = self.perlas() * 2
+	override method precio() = super() + (self.perlas() * 2)
 
 	override method pesoTotal() = super() + (0.5 * self.perlas())
 
@@ -45,6 +50,8 @@ class MascaraOscura inherits Artefacto {
 		 }
 		 
 	override method pesoTotal() = super() + 0.max(self.unidadDeLucha() - 3)
+	
+	override method precio() = super() + 10 
 
 }
 
@@ -58,7 +65,7 @@ class Armadura inherits Artefacto {
 
 	method unidadDeLucha(unJugador) = self.valorBase() + self.refuerzo().valorDeRefuerzo(unJugador)
 
-	method precio() = self.refuerzo().variacionDeCosto(self)
+	override method precio() = super() + self.refuerzo().variacionDeCosto(self) + self.valorAgregado()
 
 	override method pesoTotal() = super() + self.refuerzo().pesoAgregado()
 
@@ -75,7 +82,7 @@ object espejoFantastico inherits Artefacto {
 		return 0
 	}
 
-	method precio() = 90
+	override method precio() = super() + 90 
 
 }
 
