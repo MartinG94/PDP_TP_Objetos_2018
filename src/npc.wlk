@@ -12,23 +12,18 @@ class Npc inherits Jugador{
 }
 
 
-class Nivel {
+
+object facil{
 	
-	method multiplicadorDeDificultad()
-	
+	method multiplicadorDeDificultad() = 1
 }
 
-object facil inherits Nivel{
+object moderado{
 	
-	override method multiplicadorDeDificultad() = 1
+	method multiplicadorDeDificultad() = 2
 }
 
-object moderado inherits Nivel{
+object dificil{
 	
-	override method multiplicadorDeDificultad() = 2
-}
-
-object dificil inherits Nivel{
-	
-	override method multiplicadorDeDificultad() = 4
+	method multiplicadorDeDificultad() = 4
 }
