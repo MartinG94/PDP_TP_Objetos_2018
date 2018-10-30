@@ -6,7 +6,7 @@ import refuerzos.*
 class Comerciante {
 
 	const property itemsEnVenta = []
-	var property situacionImpositiva = new Independiente(porcentajeDeComision = 1)
+	var property situacionImpositiva = new Independiente(porcentajeDeComision = 0.1)
 
 	method vender(unItem) {
 		self.lanzarExceptionSi(self.itemsEnVenta().contains(unItem).negate(), "No tengo ese item")
@@ -20,13 +20,19 @@ class Comerciante {
 		}
 	}
 
-	method recategorizacion() {
+	method recategorizar() {
 		if (self.esIndependiente()) {
-			self.situacionImpositiva(new Independiente(porcentajeDeComision = self.situacionImpositiva().porcentajeDeComision() * 2))
+			 self.situacionImpositiva().porcentajeDeComision(0.21.min(self.situacionImpositiva().porcentajeDeComision()*2))
+			 if (self.esRegistrado()){
+			 	self.situacionImpositiva(registrado)
+			 }
 		}
+		
+		
 	}
-
-	method esIndependiente() = self.situacionImpositiva().porcetajeDeComision() < 0.21
+    
+    
+	method esIndependiente() = self.situacionImpositiva().porcentajeDeComision() < 0.21
 
 	method esRegistrado() = self.situacionImpositiva().porcentajeDeComision() == 0.21
 
