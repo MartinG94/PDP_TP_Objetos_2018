@@ -51,7 +51,7 @@ class MascaraOscura inherits Artefacto {
 		 
 	override method pesoTotal() = super() + 0.max(self.unidadDeLucha() - 3)
 	
-	override method precio() = super() + 10 
+	override method precio() = super() + 10*self.indiceDeOscuridad() 
 
 }
 
