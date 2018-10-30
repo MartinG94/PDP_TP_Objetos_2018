@@ -59,8 +59,8 @@ class Jugador {
 		self.comprarArtefactos([ unArtefacto ])
 	}
 
-	method noTeSobraEspacio(unosArtefactos) = self.artefactos().sum({ artefacto => artefacto.pesoTotal() }) + unosArtefactos.sum({ artefacto => artefacto.pesoTotal() }) > self.capacidadDeCarga()
-
+	method noTeSobraEspacio(unosArtefactos) = self.cargaActual() + unosArtefactos.sum({ artefacto => artefacto.pesoTotal() }) > self.capacidadDeCarga()
+    method cargaActual()= self.artefactos().sum({ artefacto => artefacto.pesoTotal() })
 	method lanzarExceptionSi(condicion, mensaje) {
 		if (condicion) {
 			throw new NoSePuedeComprarException(mensaje)

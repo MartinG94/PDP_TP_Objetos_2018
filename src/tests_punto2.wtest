@@ -3,7 +3,7 @@ import jugadores.*
 import artefactos.*
 import refuerzos.*
 import hechizos.*
-
+import comerciante.*
 describe "Tests sobre la habilidad de lucha de ronaldo" {
 
 	const espadaDelDestino
@@ -24,7 +24,7 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 	const ursula
 	const hechizoComercial
 	const hechizoLogo
-
+    const mockHnos
 	fixture {
 		hechizoComercial = new HechizoComercial(nombre = "el hechizo comercial", multiplo = 2, porcentaje = 0.2)
 		hechizoLogo = new Logo(nombre = "espectro maléfico", multiplo = 3)
@@ -48,6 +48,7 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 		armaduraSinRefuerzo = new Armadura(valorBase = 2, refuerzo = sinRefuerzo, diasDeCompra = 0, peso = 12)
 		merlin = new Jugador(valorBaseLucha = 2, hechizoPreferido = null, capacidadDeCarga = 10)
 		ursula = new Jugador(valorBaseLucha = 2, hechizoPreferido = null, capacidadDeCarga = 200, artefactos = [ unaMascara, armaduraConCotaDeMalla ])
+		mockHnos = new Comerciante(itemsEnVenta = [ unaMascara,otraMascara, armaduraConHechizoPar ], situacionImpositiva = new Independiente(porcentajeDeComision = 0))
 	}
 
 	test "Si ronaldo no tiene artefactos, su habilidad de lucha es 1" {
@@ -135,6 +136,32 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 	
 	test "El peso de la armadura sin refuerzo es de 12 kg"{
 		assert.equals(armaduraSinRefuerzo.pesoTotal(), 12)
+	}
+	test "Merlin le compra a mockHnos la mascaraOscura y la clara,su peso es 5 kg" {
+		merlin.comprarUnArtefacto(unaMascara,mockHnos)
+		merlin.comprarUnArtefacto(otraMascara,mockHnos)
+		
+		assert.equals(merlin.cargaActual(),5)
+		
+	}
+	
+	test "Merlín no puede comprar a Mock Hnos. la armadura con hechizo par.
+" {
+		
+		
+		const mensajeDeError = "este articulo es mucho para ti! aliviana tu carga!"
+		const excepcionEsperada = new NoSePuedeComprarException(mensajeDeError)
+		const bloqueQueDebeExplotar = { merlin.comprarUnArtefacto(armaduraConHechizoPar,mockHnos) }
+		assert.throwsExceptionLike(excepcionEsperada, bloqueQueDebeExplotar)
+		
+		
+	}
+	
+	test "Ursula se desprende de la armaduraConCotaDeMalla ,queda con 3kg de carga" 
+	
+	{   
+		ursula.desequipate(armaduraConCotaDeMalla)
+		assert.equals(ursula.cargaActual(),3)
 	}
 	
 	// Les dejo los ultimos 3 test de este punto a ustedes
