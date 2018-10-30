@@ -1,3 +1,8 @@
+import mundo.*
+import artefactos.*
+import hechizos.*
+import refuerzos.*
+
 class Comerciante {
 
 	const property itemsEnVenta = []
@@ -22,9 +27,9 @@ class Comerciante {
 	}
 
 	method esIndependiente() = self.situacionImpositiva().porcetajeDeComision() < 0.21
-	
+
 	method esRegistrado() = self.situacionImpositiva().porcentajeDeComision() == 0.21
-	
+
 	method estaConImpuestoALasGanancias() = self.situacionImpositiva().porcentajeDeComision() == 0.35
 
 }
@@ -33,7 +38,7 @@ class Independiente {
 
 	var property porcentajeDeComision
 
-	method comision(unPrecio) = unPrecio + (unPrecio * self.porcentajeDeComision())
+	method comision(unPrecio) = (unPrecio * self.porcentajeDeComision())
 
 }
 
@@ -41,7 +46,7 @@ object registrado {
 
 	const property porcentajeDeComision = 0.21
 
-	method comision(unPrecio) = unPrecio + (unPrecio * self.porcentajeDeComision())
+	method comision(unPrecio) = (unPrecio * self.porcentajeDeComision())
 
 }
 
@@ -50,7 +55,7 @@ object impuestoALasGanancias {
 	const property porcentajeDeComision = 0.35
 	const property minimoNoImponible = 5
 
-	method comision(unPrecio) = unPrecio + 0.max((unPrecio - self.minimoNoImponible()) * self.porcentajeDeComision())
+	method comision(unPrecio) = 0.max((unPrecio - self.minimoNoImponible()) * self.porcentajeDeComision())
 
 }
 

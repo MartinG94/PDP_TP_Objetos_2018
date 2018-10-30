@@ -2,6 +2,7 @@ import mundo.*
 import artefactos.*
 import hechizos.*
 import refuerzos.*
+import comerciante.*
 
 class Jugador {
 
@@ -60,8 +61,8 @@ class Jugador {
 
 	method noTeSobraEspacio(unosArtefactos) = self.artefactos().sum({ artefacto => artefacto.pesoTotal() }) + unosArtefactos.sum({ artefacto => artefacto.pesoTotal() }) > self.capacidadDeCarga()
 
-	method lanzarExceptionSi(condicion, mensaje){
-		if(condicion){
+	method lanzarExceptionSi(condicion, mensaje) {
+		if (condicion) {
 			throw new NoSePuedeComprarException(mensaje)
 		}
 	}
@@ -89,5 +90,4 @@ class Jugador {
 class NoSePuedeComprarException inherits Exception {
 
 }
-
 

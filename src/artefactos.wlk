@@ -11,18 +11,18 @@ class Artefacto {
 	method pesoTotal() = self.peso() - self.factorDeCorreccion()
 
 	method factorDeCorreccion() = 1.min(self.diasDeCompra() / 1000)
-	
+
 	method precio() = self.valorAgregado()
 
 }
 
 class Arma inherits Artefacto {
-	
+
 	var property precioParticular = 15
 
 	method unidadDeLucha(unJugador) = 3
 
-	override method precio() = super() + 15
+	override method precio() = 15
 
 }
 
@@ -45,13 +45,13 @@ class MascaraOscura inherits Artefacto {
 	const property unidadDeLucha = 0
 
 	method unidadDeLucha(unJugador) {
-		 unidadDeLucha = self.minimoPoder().max((mundo.fuerzaOscura() / 2) * self.indiceDeOscuridad())
-		 return self.unidadDeLucha()
-		 }
-		 
+		unidadDeLucha = self.minimoPoder().max((mundo.fuerzaOscura() / 2) * self.indiceDeOscuridad())
+		return self.unidadDeLucha()
+	}
+
 	override method pesoTotal() = super() + 0.max(self.unidadDeLucha() - 3)
-	
-	override method precio() = super() + 10*self.indiceDeOscuridad() 
+
+	override method precio() = super() + 10 * self.indiceDeOscuridad()
 
 }
 
@@ -82,7 +82,7 @@ object espejoFantastico inherits Artefacto {
 		return 0
 	}
 
-	override method precio() = super() + 90 
+	override method precio() = super() + 90
 
 }
 
