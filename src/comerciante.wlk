@@ -27,7 +27,9 @@ class Comerciante {
 			 	self.situacionImpositiva(registrado)
 			 }
 		}
-		
+		else{
+			self.situacionImpositiva(impuestoALasGanancias)
+		}
 		
 	}
     

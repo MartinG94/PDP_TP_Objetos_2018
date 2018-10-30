@@ -132,14 +132,14 @@ describe "Test sobre comercio" {
 	}
 
 	test "Al recategorizar a Prieto, ursula queda con 88.25 monedas luego de comprarle la mascara oscura" {
-		pastoriza.recategorizar()
+		prieto.recategorizar()
 		ursula.comprarUnArtefacto(mascaraOscura, prieto)
 		assert.equals(ursula.monedasDeOro(), 88.25)
 	}
 
 	test "Al recategorizar a Fermepin, ursula queda con 88.25 monedas luego de comprarle la mascara oscura" {
-		pastoriza.recategorizar()
-		ursula.comprarUnArtefacto(mascaraOscura, pastoriza)
+		fermepin.recategorizar()
+		ursula.comprarUnArtefacto(mascaraOscura, fermepin)
 		assert.equals(ursula.monedasDeOro(), 88.25)
 	}
 
