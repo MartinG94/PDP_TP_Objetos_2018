@@ -9,7 +9,7 @@ class Comerciante {
 	var property situacionImpositiva = new Independiente(porcentajeDeComision = 0.1)
 
 	method vender(unItem) {
-		self.lanzarExceptionSi(self.itemsEnVenta().contains(unItem).negate(), "No tengo ese item")
+		self.lanzarExceptionSi(self.noTengoEsteItem(unItem), "No tengo ese item")
 		var precioSinComision = unItem.precio()
 		unItem.valorAgregado(self.situacionImpositiva().comision(precioSinComision))
 	}
@@ -21,11 +21,9 @@ class Comerciante {
 	}
 
 	method recategorizar() {
-		if (self.esIndependiente()) {
-			 self.situacionImpositiva().porcentajeDeComision(0.21.min(self.situacionImpositiva().porcentajeDeComision()*2))
-			 if (self.esRegistrado()){
-			 	self.situacionImpositiva(registrado)
-			 }
+		if (self.soyIndependiente()) { 
+			self.duplicarComision()
+			if (self.soyRegistrado()) self.situacionImpositiva(registrado)
 		}
 		else{
 			self.situacionImpositiva(impuestoALasGanancias)
@@ -33,12 +31,15 @@ class Comerciante {
 		
 	}
     
+    method noTengoEsteItem(unItem) = self.itemsEnVenta().contains(unItem).negate()
     
-	method esIndependiente() = self.situacionImpositiva().porcentajeDeComision() < 0.21
+    method duplicarComision() = self.situacionImpositiva().porcentajeDeComision(0.21.min(self.situacionImpositiva().porcentajeDeComision()*2))
+    
+	method soyIndependiente() = self.situacionImpositiva().porcentajeDeComision() < 0.21
 
-	method esRegistrado() = self.situacionImpositiva().porcentajeDeComision() == 0.21
+	method soyRegistrado() = self.situacionImpositiva().porcentajeDeComision() == 0.21
 
-	method estaConImpuestoALasGanancias() = self.situacionImpositiva().porcentajeDeComision() == 0.35
+	method tengoImpuestoALasGanancias() = self.situacionImpositiva().porcentajeDeComision() == 0.35
 
 }
 
