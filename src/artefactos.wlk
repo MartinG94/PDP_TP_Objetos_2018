@@ -22,7 +22,7 @@ class Arma inherits Artefacto {
 
 	method unidadDeLucha(unJugador) = 3
 
-	override method precio() = 15
+	override method precio() = super() + 15
 
 }
 
