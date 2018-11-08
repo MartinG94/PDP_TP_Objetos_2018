@@ -37,7 +37,7 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 		rolando = new Jugador()
 		rolando.valorBaseLucha(1)
 		espadaDelDestino = new Arma()
-		unaMascara = new MascaraOscura(diasDeCompra = 0, peso = 3, indiceDeOscuridad = 1)
+		unaMascara = new MascaraOscura( peso = 3, indiceDeOscuridad = 1)
 		rolando.artefactos([ espadaDelDestino, collarDivino, unaMascara ])
 		otraMascara = new MascaraOscura(peso = 2, indiceDeOscuridad = 0)
 		mascaraOscura = new MascaraOscura( peso = 3, indiceDeOscuridad = 1)
