@@ -3,14 +3,14 @@ import refuerzos.*
 import jugadores.*
 
 class Artefacto {
-
-	var property diasDeCompra
+    const property hoy = new Date()
+	const property diasDeCompra = new Date()
 	var property peso
 	var property valorAgregado = 0
 
 	method pesoTotal() = self.peso() - self.factorDeCorreccion()
 
-	method factorDeCorreccion() = 1.min(self.diasDeCompra() / 1000)
+	method factorDeCorreccion() = 1.min((self.hoy()-self.diasDeCompra()) / 1000)
 
 	method precio() = self.valorAgregado()
 
@@ -56,12 +56,13 @@ class MascaraOscura inherits Artefacto {
 }
 
 class Armadura inherits Artefacto {
-
-	var property valorBase
+    var property valorBase 
 	var property refuerzo = sinRefuerzo
-
-	method valorBase(nuevaBase) {
-	}
+  
+   method valorBase(nuevaBase) {
+   	
+   }
+   
 
 	method unidadDeLucha(unJugador) = self.valorBase() + self.refuerzo().valorDeRefuerzo(unJugador)
 
