@@ -33,23 +33,23 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 		mundo.fuerzaOscura(5)
 		collarDivino.perlas(5)
 		collarDivino.peso(0)
-		collarDivino.diasDeCompra(0)
+		//collarDivino.diasDeCompra(0)
 		rolando = new Jugador()
 		rolando.valorBaseLucha(1)
 		espadaDelDestino = new Arma()
 		unaMascara = new MascaraOscura(diasDeCompra = 0, peso = 3, indiceDeOscuridad = 1)
 		rolando.artefactos([ espadaDelDestino, collarDivino, unaMascara ])
-		otraMascara = new MascaraOscura(diasDeCompra = 0, peso = 2, indiceDeOscuridad = 0)
-		mascaraOscura = new MascaraOscura(diasDeCompra = 0, peso = 3, indiceDeOscuridad = 1)
-		mascaraClara = new MascaraOscura(diasDeCompra = 0, peso = 2, indiceDeOscuridad = 0)
-		espadaVieja = new Arma(diasDeCompra = 3000, peso = 7)
-		espadaNueva = new Arma(diasDeCompra = 0, peso = 4)
-		espadaComun = new Arma(diasDeCompra = 50, peso = 5)
+		otraMascara = new MascaraOscura(peso = 2, indiceDeOscuridad = 0)
+		mascaraOscura = new MascaraOscura( peso = 3, indiceDeOscuridad = 1)
+		mascaraClara = new MascaraOscura( peso = 2, indiceDeOscuridad = 0)
+		espadaVieja = new Arma(diasDeCompra = new Date(7,5,2006), peso = 7)
+		espadaNueva = new Arma(peso = 4)
+		espadaComun = new Arma(diasDeCompra = new Date().minusDays(50), peso = 5)
 		cotaDeMalla = new CotaDeMalla()
-		armaduraConCotaDeMalla = new Armadura(valorBase = 2, refuerzo = cotaDeMalla, diasDeCompra = 0, peso = 10)
-		armaduraConHechizoPar = new Armadura(valorBase = 2, refuerzo = hechizoComercial, diasDeCompra = 0, peso = 12)
-		armaduraConHechizoImpar = new Armadura(valorBase = 2, refuerzo = hechizoLogo, diasDeCompra = 0, peso = 12)
-		armaduraSinRefuerzo = new Armadura(valorBase = 2, refuerzo = sinRefuerzo, diasDeCompra = 0, peso = 12)
+		armaduraConCotaDeMalla = new Armadura(valorBase = 2, refuerzo = cotaDeMalla,  peso = 10)
+		armaduraConHechizoPar = new Armadura(valorBase = 2, refuerzo = hechizoComercial, peso = 12)
+		armaduraConHechizoImpar = new Armadura(valorBase = 2, refuerzo = hechizoLogo,  peso = 12)
+		armaduraSinRefuerzo = new Armadura(valorBase = 2, refuerzo = sinRefuerzo,  peso = 12)
 		merlin = new Jugador(valorBaseLucha = 2, hechizoPreferido = null, capacidadDeCarga = 10)
 		ursula = new Jugador(valorBaseLucha = 2, hechizoPreferido = null, capacidadDeCarga = 200, artefactos = [ unaMascara, armaduraConCotaDeMalla ])
 		mockHnos = new Comerciante(itemsEnVenta = [ mascaraOscura, mascaraClara, armaduraConHechizoPar ], situacionImpositiva = new Independiente(porcentajeDeComision = 0))
@@ -160,6 +160,6 @@ describe "Tests sobre la habilidad de lucha de ronaldo" {
 		assert.equals(ursula.cargaActual(), 3)
 	}
 
-// Les dejo los ultimos 3 test de este punto a ustedes
+
 }
 
