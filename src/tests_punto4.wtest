@@ -24,7 +24,7 @@ describe "Test sobre comercio" {
 		thor = new Jugador(valorBaseLucha = 2, hechizoPreferido = hechizoBasico, capacidadDeCarga = 200)
 		loki = new Jugador(valorBaseLucha = 2, hechizoPreferido = hechizoBasico, capacidadDeCarga = 200)
 		loki.monedasDeOro(5)
-		mascaraOscura = new MascaraOscura(diasDeCompra = 0, peso = 3, indiceDeOscuridad = 1)
+		mascaraOscura = new MascaraOscura(peso = 3, indiceDeOscuridad = 1)
 		ursula = new Jugador(capacidadDeCarga=200,valorBaseLucha=2)
 		pastoriza = new Comerciante(itemsEnVenta = [ mascaraOscura ], situacionImpositiva = new Independiente(porcentajeDeComision = 0.09))
 		prieto =new Comerciante(itemsEnVenta = [ mascaraOscura ], situacionImpositiva =registrado)
@@ -57,32 +57,31 @@ describe "Test sobre comercio" {
 	}
 
 	test "Xenia compra una espada, un collar divino(de 5 perlas), una armadura sin refuerzo y otra armadura con cota de malla cuyo valor de lucha es 5, Le quedan 70,5." {
-		const espada = new Arma(diasDeCompra = 0, peso = 0)
-		const armadura = new Armadura(diasDeCompra = 0, peso = 0, valorBase = 2)
+		const espada = new Arma( peso = 0)
+		const armadura = new Armadura(peso = 0, valorBase = 2)
 		const malla = new CotaDeMalla(refuerzo = 5)
-		const armaduraConCotaDeMalla = new Armadura(diasDeCompra = 0, peso = 0, valorBase = 2, refuerzo = malla)
+		const armaduraConCotaDeMalla = new Armadura( peso = 0, valorBase = 2, refuerzo = malla)
 		collarDivino.perlas(5)
 		collarDivino.peso(0)
-		collarDivino.diasDeCompra(0)
+		
 		xenia.comprarArtefactos([ espada, collarDivino, armadura, armaduraConCotaDeMalla ])
 		assert.equals(xenia.monedasDeOro(), 70.5)
 	}
 
 	test "Xenia compra una espada, un collar divino(de 5 perlas), una armadura sin refuerzo y otra armadura con cota de malla cuyo valor de lucha es 5, tiene 4 artefactos" {
-		const espada = new Arma(diasDeCompra = 0, peso = 0)
-		const armadura = new Armadura(diasDeCompra = 0, peso = 0, valorBase = 2)
+		const espada = new Arma(peso = 0)
+		const armadura = new Armadura(peso = 0, valorBase = 2)
 		const malla = new CotaDeMalla(refuerzo = 5)
-		const armaduraConCotaDeMalla = new Armadura(diasDeCompra = 0, peso = 0, valorBase = 2, refuerzo = malla)
+		const armaduraConCotaDeMalla = new Armadura( peso = 0, valorBase = 2, refuerzo = malla)
 		collarDivino.perlas(5)
 		collarDivino.peso(0)
-		collarDivino.diasDeCompra(0)
 		xenia.comprarArtefactos([ espada, collarDivino, armadura, armaduraConCotaDeMalla ])
 		assert.equals(xenia.artefactos().size(), 4)
 	}
 
 	test "Thor compra una armadura con bendición como refuerzo, y una armadura reforzada con el hechizo alacachula, le quedan 74 monedas." {
-		const armaduraBendita = new Armadura(diasDeCompra = 0, peso = 0, valorBase = 2, refuerzo = bendicion)
-		const armaduraHechizada = new Armadura(diasDeCompra = 0, peso = 0, valorBase = 2, refuerzo = hechizoLogo)
+		const armaduraBendita = new Armadura( peso = 0, valorBase = 2, refuerzo = bendicion)
+		const armaduraHechizada = new Armadura(peso = 0, valorBase = 2, refuerzo = hechizoLogo)
 		thor.comprarUnArtefacto(armaduraBendita, new Comerciante(itemsEnVenta = [ armaduraBendita ], situacionImpositiva = new Independiente(porcentajeDeComision = 0)))
 		thor.comprarUnArtefacto(armaduraHechizada, new Comerciante(itemsEnVenta = [ armaduraHechizada ], situacionImpositiva = new Independiente(porcentajeDeComision = 0)))
 		assert.equals(thor.monedasDeOro(), 74)
