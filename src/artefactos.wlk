@@ -17,11 +17,9 @@ class Artefacto {
 
 class Arma inherits Artefacto {
 
-	var property precioParticular = 15
-
 	method unidadDeLucha(unJugador) = 3
 
-	override method precio() = super() + 15
+	override method precio() = super() + 15 
 
 }
 
