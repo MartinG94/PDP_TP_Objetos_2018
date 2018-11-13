@@ -16,12 +16,7 @@ class Hechizo {
 
 	method esPar() = self.poder().even()
 
-	method pesoAgregado() {
-		if (self.esPar()) {
-			return 2
-		}
-		return 1
-	}
+	method pesoAgregado() = if (self.esPar()) 2 else 1
 
 }
 
