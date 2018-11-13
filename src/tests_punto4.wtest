@@ -118,26 +118,26 @@ describe "Test sobre comercio" {
 	}
 
 	test "Al recategorizar a Pastoriza, ursula queda con 88.2 monedas luego de comprarle la mascara oscura" {
-		pastoriza.recategorizar()
+		pastoriza.recategorizacionCompulsiva()
 		ursula.comprarUnArtefacto(mascaraOscura, pastoriza)
 		assert.equals(ursula.monedasDeOro(), 88.2)
 	}
 
 	test "Al recategorizar dos veces a Pastoriza, ursula queda con 87.9 monedas luego de comprarle la mascara oscura" {
-		pastoriza.recategorizar()
-		pastoriza.recategorizar()
+		pastoriza.recategorizacionCompulsiva()
+		pastoriza.recategorizacionCompulsiva()
 		ursula.comprarUnArtefacto(mascaraOscura, pastoriza)
 		assert.equals(ursula.monedasDeOro(), 87.9)
 	}
 
 	test "Al recategorizar a Prieto, ursula queda con 88.25 monedas luego de comprarle la mascara oscura" {
-		prieto.recategorizar()
+		prieto.recategorizacionCompulsiva()
 		ursula.comprarUnArtefacto(mascaraOscura, prieto)
 		assert.equals(ursula.monedasDeOro(), 88.25)
 	}
 
 	test "Al recategorizar a Fermepin, ursula queda con 88.25 monedas luego de comprarle la mascara oscura" {
-		fermepin.recategorizar()
+		fermepin.recategorizacionCompulsiva()
 		ursula.comprarUnArtefacto(mascaraOscura, fermepin)
 		assert.equals(ursula.monedasDeOro(), 88.25)
 	}
