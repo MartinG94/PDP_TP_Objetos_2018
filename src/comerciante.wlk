@@ -20,34 +20,30 @@ class Comerciante {
 		}
 	}
 
-	method recategorizar() {
-		if (self.soyIndependiente()) { 
-			self.duplicarComision()
-			if (self.soyRegistrado()) self.situacionImpositiva(registrado)
-		}
-		else{
-			self.situacionImpositiva(impuestoALasGanancias)
-		}
-		
+	method recategorizacionCompulsiva() {
+		self.situacionImpositiva().recategorizar(self)
 	}
     
     method noTengoEsteItem(unItem) = self.itemsEnVenta().contains(unItem).negate()
     
-    method duplicarComision() = self.situacionImpositiva().porcentajeDeComision(0.21.min(self.situacionImpositiva().porcentajeDeComision()*2))
-    
-	method soyIndependiente() = self.situacionImpositiva().porcentajeDeComision() < 0.21
-
-	method soyRegistrado() = self.situacionImpositiva().porcentajeDeComision() == 0.21
-
-	method tengoImpuestoALasGanancias() = self.situacionImpositiva().porcentajeDeComision() == 0.35
-
 }
 
 class Independiente {
 
 	var property porcentajeDeComision
 
+	method porcentajeDeComision(nuevoPorcentaje){
+		porcentajeDeComision = 0.21.min(nuevoPorcentaje)
+	}
+
 	method comision(unPrecio) = (unPrecio * self.porcentajeDeComision())
+
+	method duplicarComision() = self.porcentajeDeComision() * 2
+
+	method recategorizar(unComerciante){
+		if((self.porcentajeDeComision() * 2) > 0.21) unComerciante.situacionImpositiva(registrado)
+		else self.duplicarComision()
+	}
 
 }
 
@@ -56,7 +52,11 @@ object registrado {
 	const property porcentajeDeComision = 0.21
 
 	method comision(unPrecio) = (unPrecio * self.porcentajeDeComision())
-
+	
+	method recategorizar(unComerciante){
+		unComerciante.situacionImpositiva(impuestoALasGanancias)
+	}
+	
 }
 
 object impuestoALasGanancias {
@@ -65,6 +65,10 @@ object impuestoALasGanancias {
 	const property minimoNoImponible = 5
 
 	method comision(unPrecio) = 0.max((unPrecio - self.minimoNoImponible()) * self.porcentajeDeComision())
+
+	method recategorizar(unComerciante){
+		// No hace nada
+	}
 
 }
 
